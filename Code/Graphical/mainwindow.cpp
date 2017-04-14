@@ -14,19 +14,17 @@ int main(){
                 case sf::Event::Closed:
                     window.close();
                 break;
-                // key pressed
+                
                 case 
 
                 break;
                 
                 default:
-
+                    window.open();
+                    window.display();
                 break;
             }
         }
-        window.open();
-
-        window.display();
     }
     return 0;
 }
