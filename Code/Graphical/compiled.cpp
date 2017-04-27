@@ -14,8 +14,8 @@ class Fila {
 	private:
 		// do, do#, re, re#, mi, fa, fa#, sol, sol#, la, la#, si [0 a 12]
 		int *array;
-		int frente;
-		int tras;
+		int frente;   //frente == primeiro elemento
+		int tras;	  //tras   == ultimo elemento
 		int tam;
 		
 		
