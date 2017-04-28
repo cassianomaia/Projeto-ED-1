@@ -3,16 +3,17 @@ using namespace std;
 
 class Fila {
 	public:	
+		Fila();
 		Fila(int);
 		~Fila();
 		bool Insere(int);
 		int Retira();
 		bool Vazia();
 		bool Cheia();
-		bool Compara(Fila, int);
+		bool Igual(Fila, Fila, int);
 		
 	private:
-		// do, do#, re, re#, mi, fa, fa#, sol, sol#, la, la#, si [0 a 12]
+		// do, do#, re, re#, mi, fa, fa#, sol, sol#, la, la#, si [1 a 13] //não usaremos 0 senão a lógica não funciona
 		int *array;
 		int frente;   //frente == primeiro elemento
 		int tras;	  //tras   == ultimo elemento
@@ -20,6 +21,9 @@ class Fila {
 		
 		
 };
+
+Fila::Fila(){
+}
 
 Fila::Fila(int _tam){
 	tam = _tam;
@@ -69,21 +73,56 @@ bool Fila::Cheia(){
 }
 
 
-/*
-bool Fila::Compara(Fila _fila, int _tam){
-	int i;
+bool Fila::Igual(Fila f1, Fila f2, int _tam){
+	bool equalForNow;
+	int deuCerto1, deuCerto2, aux;
+	Fila fAux1;
+	Fila fAux2;
 	
-	for (i=0; i < _tam; i++){
-		if (this->array[i] != _fila.array[i]){ 
-			return false;
-			break;
+	equalForNow = true;
+	
+	while ((f1.Vazia() == false) && (f2.Vazia() == false)) {
+		deuCerto1 = f1.Retira();
+		deuCerto2 = f2.Retira();
+		if (deuCerto1 != 0)
+			fAux1.Insere(deuCerto1);
+		if (deuCerto2 != 0)
+			fAux2.Insere(deuCerto2);
+		//isso aqui checou se o número de elementos das filas era igual
+		
+		if ((deuCerto1 != 0) && (deuCerto2 == 0)){
+			equalForNow = false;
 		}
-		else 
-			return true;
+		if ((deuCerto1 == 0) && (deuCerto2 != 0)){
+			equalForNow = false;
+		}
+		if ((deuCerto1 != 0) && (deuCerto2 != 0)){
+			if (deuCerto1 != deuCerto2){
+				equalForNow = false;
+			}
+		}
+		
+	} //checagem feita
+	
+	//voltando os elementos para suas filas
+	while (fAux1.Vazia() != false){
+		aux = fAux1.Retira();
+		f1.Insere(aux);
 	}
-}; */
+	
+	while (fAux2.Vazia() != false) {
+		aux = fAux2.Retira();
+		f2.Insere(aux);
+	}
+	
+	if (equalForNow == true)
+		return true;
+	else
+		return false;
+	
+} 
 
-// esse metodo n�o est� funcionando ainda 
+// metodo adicionado, pronto para ser usado
 
 
 int main(){
