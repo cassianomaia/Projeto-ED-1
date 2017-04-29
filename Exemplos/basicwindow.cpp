@@ -3,7 +3,7 @@
 int main()
 {
     sf::Window window(sf::VideoMode(800, 600), "My window");
-
+    window.clear(0,0,0,0);
     // run the program as long as the window is open
     while (window.isOpen())
     {
@@ -15,6 +15,9 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+
+        window.clear();
+        window.display();
     }
 
     return 0;
