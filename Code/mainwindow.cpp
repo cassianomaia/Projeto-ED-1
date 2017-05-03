@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-
+#include <fila.h>
 /*)
 void mainwindow (){
     window.clear(sf::Color::Blue);
@@ -22,7 +22,7 @@ void startlevel(){
 
 int main(){
     sf::RenderWindow window(sf::VideoMode(800, 600), "Pianus");
-    window.clear(sf::Color::Blue);
+    window.clear(sf::Color::White);
     sf::RectangleShape title(sf::Vector2f(600, 100));
     title.setFillColor(sf::Color::Green);
     title.setPosition(100, 100);
@@ -46,7 +46,7 @@ int main(){
         // Checa os eventos em loop
         while (window.pollEvent(event)){
             if (event.type == sf::Event::Closed)
-                window.close();
+                window.close(); 
         }
         window.clear(sf::Color::Blue);
         window.draw(title);
