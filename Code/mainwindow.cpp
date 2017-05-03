@@ -39,9 +39,9 @@ int main(){
         return EXIT_FAILURE;
     }
     button.setTexture(&textButton, true);
-    button.setPosition(247, 303);
+    button.setPosition(247, 343);
     
-    sf::RectangleShape howto(sf::Vector2f(128,30));
+    sf::RectangleShape howto(sf::Vector2f(128,20));
     sf::Texture textHowt;
     if (!textHowt.loadFromFile("../Images/howto.png"))
     {
@@ -50,7 +50,7 @@ int main(){
     howto.setTexture(&textHowt, true);
     howto.setPosition(136, 520);
     
-    sf::RectangleShape about(sf::Vector2f(257,30));
+    sf::RectangleShape about(sf::Vector2f(200,20));
     sf::Texture textAbout;
     if (!textAbout.loadFromFile("../Images/about.png"))
     {

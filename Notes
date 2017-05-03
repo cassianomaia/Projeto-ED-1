@@ -2,7 +2,7 @@ Notes
 
 Titulo:  300 x 118
 
-Botao: 305 x 35
+Botao: 339 x 50
 
 About: 128 x 30
 
@@ -11,4 +11,4 @@ How to: 257 x 30
 Compilar:
 g++ -c *.cpp
 g++ *.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system
-./sfml-app
+./\sfml-app
