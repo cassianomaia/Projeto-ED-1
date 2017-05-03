@@ -1,5 +1,4 @@
 #include <SFML/Graphics.hpp>
-#include <fila.h>
 /*)
 void mainwindow (){
     window.clear(sf::Color::Blue);
@@ -23,22 +22,42 @@ void startlevel(){
 int main(){
     sf::RenderWindow window(sf::VideoMode(800, 600), "Pianus");
     window.clear(sf::Color::White);
-    sf::RectangleShape title(sf::Vector2f(600, 100));
-    title.setFillColor(sf::Color::Green);
-    title.setPosition(100, 100);
+   
+   sf::RectangleShape title(sf::Vector2f(300, 118));
+    sf::Texture textT;
+    if (!textT.loadFromFile("../Images/titulo.png"))
+    {
+        return EXIT_FAILURE;
+    }
+    title.setTexture(&textT, true);
+    title.setPosition(250, 100);
 
-    sf::RectangleShape button1(sf::Vector2f(100,50));
-    button1.setFillColor(sf::Color::Green);
-    button1.setPosition(350, 250);
-    sf::RectangleShape button2(sf::Vector2f(100,50));
-    button2.setFillColor(sf::Color::Green);
-    button2.setPosition(350, 325);
-    sf::RectangleShape button3(sf::Vector2f(100,50));
-    button3.setFillColor(sf::Color::Green);
-    button3.setPosition(350, 400);
-    sf::RectangleShape button4(sf::Vector2f(50,30));
-    button4.setFillColor(sf::Color::Green);
-    button4.setPosition(730, 550);
+    sf::RectangleShape button(sf::Vector2f(305,35));
+    sf::Texture textButton;
+    if (!textButton.loadFromFile("../Images/button.png"))
+    {
+        return EXIT_FAILURE;
+    }
+    button.setTexture(&textButton, true);
+    button.setPosition(247, 303);
+    
+    sf::RectangleShape howto(sf::Vector2f(128,30));
+    sf::Texture textHowt;
+    if (!textHowt.loadFromFile("../Images/howto.png"))
+    {
+        return EXIT_FAILURE;
+    }
+    howto.setTexture(&textHowt, true);
+    howto.setPosition(136, 520);
+    
+    sf::RectangleShape about(sf::Vector2f(257,30));
+    sf::Texture textAbout;
+    if (!textAbout.loadFromFile("../Images/about.png"))
+    {
+        return EXIT_FAILURE;
+    }
+    about.setTexture(&textAbout, true);
+    about.setPosition(472, 520);
 
     // Loop para deixar a janela aberta
     while (window.isOpen()){
@@ -48,12 +67,11 @@ int main(){
             if (event.type == sf::Event::Closed)
                 window.close(); 
         }
-        window.clear(sf::Color::Blue);
+        window.clear(sf::Color::White);
         window.draw(title);
-        window.draw(button1);
-        window.draw(button2);
-        window.draw(button3);
-        window.draw(button4);
+        window.draw(button);
+        window.draw(howto);
+        window.draw(about);
         window.display();
     }
     return 0;
