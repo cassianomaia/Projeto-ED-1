@@ -1,4 +1,4 @@
-Notes
+1Notes
 
 Titulo:  300 x 118
 
@@ -11,4 +11,4 @@ How to: 257 x 30
 Compilar:
 g++ -c *.cpp
 g++ *.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system
-./\sfml-app
+./sfml-app
