@@ -2,13 +2,20 @@
 
 Titulo:  400 x 158
 
-Botao: 339 x 50
+Botao: 400 x 60
 
-About: 128 x 30
+About: 400 x 47
 
-How to: 257 x 30
+How to: 199 x 47
 
 Compilar:
 g++ -c *.cpp
 g++ *.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system
 ./sfml-app
+
+
+1731 1037
+
+579 548
+
+1152 489

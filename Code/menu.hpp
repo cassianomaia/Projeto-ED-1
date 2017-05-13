@@ -1,29 +1,28 @@
 #include <iostream>
 #include "cScreen.hpp"
+#include "selectionmenu.h"
 
 #include <SFML/Graphics.hpp>
 
-class menu : public cScreen
-{
+class menu : public cScreen{
 private:
-	bool playing;
+
 public:
 	menu(void);
 	virtual int Run(sf::RenderWindow &Tela);
 };
 
-menu::menu(void)
-{
-	playing = false;
+menu::menu(void){
+
 }
 
-int menu::Run(sf::RenderWindow &Tela)
-{
-	Tela.clear(sf::Color::White);
+int menu::Run(sf::RenderWindow &Tela){
+
+	selectionmenu menu1 (Tela.getSize().x, Tela.getSize().y);
+	/*
 	sf::RectangleShape title(sf::Vector2f(400, 158));
     sf::Texture textT;
-    if (!textT.loadFromFile("../Images/titulo.png"))
-    {
+    if (!textT.loadFromFile("../Images/titulo.png")){
         return EXIT_FAILURE;
     }
     title.setTexture(&textT, true);
@@ -31,8 +30,7 @@ int menu::Run(sf::RenderWindow &Tela)
 
     sf::RectangleShape button(sf::Vector2f(400,60));
     sf::Texture textButton;
-    if (!textButton.loadFromFile("../Images/button.png"))
-    {
+    if (!textButton.loadFromFile("../Images/button.png")){
         return EXIT_FAILURE;
     }
     button.setTexture(&textButton, true);
@@ -40,8 +38,7 @@ int menu::Run(sf::RenderWindow &Tela)
     
     sf::RectangleShape howto(sf::Vector2f(400,47));
     sf::Texture textHowt;
-    if (!textHowt.loadFromFile("../Images/howto.png"))
-    {
+    if (!textHowt.loadFromFile("../Images/howto.png")){
         return EXIT_FAILURE;
     }
     howto.setTexture(&textHowt, true);
@@ -49,53 +46,43 @@ int menu::Run(sf::RenderWindow &Tela)
     
     sf::RectangleShape about(sf::Vector2f(199,47));
     sf::Texture textAbout;
-    if (!textAbout.loadFromFile("../Images/about.png"))
-    {
+    if (!textAbout.loadFromFile("../Images/about.png")){
         return EXIT_FAILURE;
     }
     about.setTexture(&textAbout, true);
     about.setPosition(550, 520);
-
+	*/
     // Loop para deixar a janela aberta
     while (Tela.isOpen()){
         sf::Event event;
         // Checa os eventos em loop
         while (Tela.pollEvent(event)){
-            if (event.type == sf::Event::Closed){
-                Tela.close(); 
+            switch(event.type){
+            	case sf::Event::KeyReleased:
+            		switch (event.key.code)
+            			case sf::Keyboard::Up:
+            				menu1.MoveUp();
+            			break;
+            			case sf::Keyboard::Down:
+            				menu1.MoveDown();
+            			break;
+            		/*	case sf::Keyboard::Return:
+            				return (menu1.GetPressedItem());
+            			break; */
+               		break;
+            	case sf::Event::Closed:
+            		Tela.close();
+            	break;
+
             }
-           /* if (Event.type == sf::Event::KeyPressed){
-				switch (Event.key.code)
-				{
-				case sf::Keyboard::Up:
-					menu = 0;
-					break;
-				case sf::Keyboard::Down:
-					menu = 1;
-					break;
-				case sf::Keyboard::Return:
-					if (menu == 0)
-					{
-						//Let's get play !
-						playing = true;
-						return (1);
-					}
-					else
-					{
-						//Let's get work...
-						return (-1);
-					}
-					break;
-				default:
-					break;
-				}
-			} */
-        }
         Tela.clear(sf::Color::White);
+        /*
         Tela.draw(title);
         Tela.draw(button);
         Tela.draw(howto);
         Tela.draw(about);
+        */
+        menu1.draw(Tela);
         Tela.display();
     }
 

@@ -8,6 +8,6 @@
 #include "menu.hpp"
 //#include "jogo.hpp"
 //#include "about.hpp"
-//#include "howtoplay.hpp"
+//#include "howto.hpp"
 
 #endif //SCREENS_HPP_INCLUDED
