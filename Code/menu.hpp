@@ -1,4 +1,3 @@
-#include <iostream>
 #include "cScreen.hpp"
 #include "selectionmenu.h"
 #include <SFML/Graphics.hpp>
@@ -25,7 +24,7 @@ int menu::Run(sf::RenderWindow &Tela){
         return EXIT_FAILURE;
     }
     title.setTexture(&textT, true);
-    title.setPosition(200, 100);
+    title.setPosition(200, 50);
     /*
     sf::RectangleShape button(sf::Vector2f(400,60));
     sf::Texture textButton;
