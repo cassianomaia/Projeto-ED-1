@@ -8,7 +8,7 @@ int main(){
     int screen = 0;
 
 
-    sf::RenderWindow App(sf::VideoMode(800, 600), "Pianus");
+    sf::RenderWindow Tela(sf::VideoMode(800, 600), "Pianus");
    
     menu s0;
     Screens.push_back(&s0);
@@ -21,7 +21,7 @@ int main(){
     //Main loop
     while (screen >= 0)
     {
-        screen = Screens[screen]->Run(App);
+        screen = Screens[screen]->Run(Tela);
     }
     return 0;
 }

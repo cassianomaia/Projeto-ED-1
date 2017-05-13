@@ -9,7 +9,7 @@ private:
 	bool playing;
 public:
 	menu(void);
-	virtual int Run(sf::RenderWindow &App);
+	virtual int Run(sf::RenderWindow &Tela);
 };
 
 menu::menu(void)
@@ -17,9 +17,9 @@ menu::menu(void)
 	playing = false;
 }
 
-int menu::Run(sf::RenderWindow &App)
+int menu::Run(sf::RenderWindow &Tela)
 {
-	App.clear(sf::Color::White);
+	Tela.clear(sf::Color::White);
 	sf::RectangleShape title(sf::Vector2f(300, 118));
     sf::Texture textT;
     if (!textT.loadFromFile("../Images/titulo.png"))
@@ -57,21 +57,21 @@ int menu::Run(sf::RenderWindow &App)
     about.setPosition(472, 520);
 
     // Loop para deixar a janela aberta
-    while (App.isOpen()){
+    while (Tela.isOpen()){
         sf::Event event;
         // Checa os eventos em loop
-        while (App.pollEvent(event)){
+        while (Tela.pollEvent(event)){
             if (event.type == sf::Event::Closed)
-                App.close(); 
+                Tela.close(); 
         }
-        App.clear(sf::Color::White);
-        App.draw(title);
-        App.draw(button);
-        App.draw(howto);
-        App.draw(about);
-        App.display();
+        Tela.clear(sf::Color::White);
+        Tela.draw(title);
+        Tela.draw(button);
+        Tela.draw(howto);
+        Tela.draw(about);
+        Tela.display();
     }
 
-	//Never reaching this point normally, but just in case, exit the application
+	//Never reaching this point normally, but just in case, exit the Telalication
 	return (-1);
 }

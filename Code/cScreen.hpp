@@ -4,7 +4,7 @@
 class cScreen
 {
 public :
-    virtual int Run (sf::RenderWindow &App) = 0;
+    virtual int Run (sf::RenderWindow &Tela) = 0;
 };
 
 #endif
