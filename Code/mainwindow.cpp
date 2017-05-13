@@ -11,8 +11,8 @@ int main(){
    
     menu s0;
     Screens.push_back(&s0);
-//    jogo s1;
-//    Screens.push_back(&s1);
+    jogo s1;
+    Screens.push_back(&s1);
 //    about s2;
 //    Screens.push_back(&s3);
 //    howtoplay s3;

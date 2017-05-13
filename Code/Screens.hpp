@@ -6,7 +6,7 @@
 
 //Including each screen of application
 #include "menu.hpp"
-//#include "jogo.hpp"
+#include "jogo.hpp"
 //#include "about.hpp"
 //#include "howto.hpp"
 
