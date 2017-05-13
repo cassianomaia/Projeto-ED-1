@@ -67,15 +67,16 @@ int lv1::Run(sf::RenderWindow &Tela){
     if (!E.loadFromFile("../Sounds/17.wav"))
         return -1;
 
-
-
-
     sf::Sound sound;
     
 
-	sf::RectangleShape piano(sf::Vector2f(400, 400));
-    piano.setPosition(200, 100);
-    piano.setFillColor(sf::Color::Black);
+	sf::RectangleShape piano(sf::Vector2f(503, 203));
+    piano.setPosition(149, 200);
+    sf::Texture tpiano;
+    if (!tpiano.loadFromFile("../Images/teclado_real_oficial1.bmp")){
+        return EXIT_FAILURE;
+    }
+    piano.setTexture(&tpiano, true);
 
     // Loop para deixar a janela aberta
     while (Tela.isOpen()){
