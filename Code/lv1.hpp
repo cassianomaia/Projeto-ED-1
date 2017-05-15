@@ -15,6 +15,7 @@ lv1::lv1(void){
 }
 
 int lv1::Run(sf::RenderWindow &Tela){
+
     sf::SoundBuffer c;
     if (!c.loadFromFile("../Sounds/1.wav"))
         return -1;
@@ -76,10 +77,17 @@ int lv1::Run(sf::RenderWindow &Tela){
     if (!tpiano.loadFromFile("../Images/teclado_real_oficial1.bmp")){
         return EXIT_FAILURE;
     }
-    piano.setTexture(&tpiano, true);
+    sf::Texture tpianoc;
+    if (!tpianoc.loadFromFile("../Images/Q1.bmp")){
+        return EXIT_FAILURE;
+    }
+
 
     // Loop para deixar a janela aberta
     while (Tela.isOpen()){
+        Tela.clear(sf::Color::White);
+        piano.setTexture(&tpiano, true);
+        Tela.draw(piano);
         sf::Event event;
         // Checa os eventos em loop
         while (Tela.pollEvent(event)){
@@ -87,8 +95,12 @@ int lv1::Run(sf::RenderWindow &Tela){
                 case sf::Event::KeyPressed:
                     switch (event.key.code){
                         case sf::Keyboard::Q:
+                            piano.setTexture(&tpianoc, true);
+                            Tela.draw(piano);
+                            Tela.display();
                             sound.setBuffer(c);
                             sound.play();
+                            sf::sleep(sf::milliseconds(250));
                         break;
                         case sf::Keyboard::Num2:
                             sound.setBuffer(csharp);
@@ -161,7 +173,7 @@ int lv1::Run(sf::RenderWindow &Tela){
                 break; 
             }
         }
-        Tela.clear(sf::Color::White);
+        piano.setTexture(&tpiano, true);
         Tela.draw(piano);
         Tela.display();
     }
