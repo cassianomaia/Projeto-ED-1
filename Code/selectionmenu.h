@@ -33,7 +33,7 @@ selectionmenu::selectionmenu(float width, float height){
 
 	menu[1].setFont(font);
 	menu[1].setFillColor(sf::Color::Blue);
-	menu[1].setString("1");
+	menu[1].setString("Training");
 	menu[1].setPosition(sf::Vector2f(width / 2, 300));
 	menu[1].setCharacterSize(50);
 

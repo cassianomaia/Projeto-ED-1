@@ -7,6 +7,7 @@
 //Including each screen of application
 #include "menu.hpp"
 #include "lv1.hpp"
+#include "lv2.hpp"
 //#include "about.hpp"
 //#include "howto.hpp"
 

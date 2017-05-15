@@ -1,20 +1,21 @@
 #include "cScreen.hpp"
 #include <SFML/Graphics.hpp>
-#include "fila.h"
 #include <SFML/Audio.hpp>
 
-class lv1 : public cScreen{
+class lv2 : public cScreen{
 private:
+    int turno;   // 0 = pausa | 1 = pc | 2 = jogador
 public:
-	lv1(void);
+	lv2(void);
 	virtual int Run(sf::RenderWindow &Tela);
 };
 
-lv1::lv1(void){
+lv2::lv2(void){
 
 }
 
-int lv1::Run(sf::RenderWindow &Tela){
+int lv2::Run(sf::RenderWindow &Tela){
+    turno = 0;
     sf::SoundBuffer c;
     if (!c.loadFromFile("../Sounds/1.wav"))
         return -1;

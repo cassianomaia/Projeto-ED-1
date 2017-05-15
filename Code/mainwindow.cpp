@@ -13,8 +13,8 @@ int main(){
     Screens.push_back(&s0);
     lv1 s1;
     Screens.push_back(&s1);
-//    about s2;
-//    Screens.push_back(&s3);
+    lv2 s2;
+    Screens.push_back(&s2);
 //    howtoplay s3;
 
     //Main loop
