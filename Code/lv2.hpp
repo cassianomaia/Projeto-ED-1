@@ -80,6 +80,71 @@ int lv2::Run(sf::RenderWindow &Tela){
     if (!tpianoc.loadFromFile("../Images/Q1.bmp")){
         return EXIT_FAILURE;
     }
+    sf::Texture tpianocsharp;
+    if (!tpianocsharp.loadFromFile("../Images/2.bmp")){
+        return EXIT_FAILURE;
+    }
+    sf::Texture tpianod;
+    if (!tpianod.loadFromFile("../Images/W.bmp")){
+        return EXIT_FAILURE;
+    }
+    sf::Texture tpianodsharp;
+    if (!tpianodsharp.loadFromFile("../Images/3.bmp")){
+        return EXIT_FAILURE;
+    }
+    sf::Texture tpianoe;
+    if (!tpianoe.loadFromFile("../Images/E.bmp")){
+        return EXIT_FAILURE;
+    }
+    sf::Texture tpianof;
+    if (!tpianof.loadFromFile("../Images/R.bmp")){
+        return EXIT_FAILURE;
+    }
+    sf::Texture tpianofsharp;
+    if (!tpianofsharp.loadFromFile("../Images/5.bmp")){
+        return EXIT_FAILURE;
+    }
+    sf::Texture tpianog;
+    if (!tpianog.loadFromFile("../Images/T.bmp")){
+        return EXIT_FAILURE;
+    }
+    sf::Texture tpianogsharp;
+    if (!tpianogsharp.loadFromFile("../Images/6.bmp")){
+        return EXIT_FAILURE;
+    }
+    sf::Texture tpianoa;
+    if (!tpianoa.loadFromFile("../Images/Y.bmp")){
+        return EXIT_FAILURE;
+    }
+    sf::Texture tpianoasharp;
+    if (!tpianoasharp.loadFromFile("../Images/7.bmp")){
+        return EXIT_FAILURE;
+    }
+    sf::Texture tpianob;
+    if (!tpianob.loadFromFile("../Images/U.bmp")){
+        return EXIT_FAILURE;
+    }
+    sf::Texture tpianoC;
+    if (!tpianoC.loadFromFile("../Images/I.bmp")){
+        return EXIT_FAILURE;
+    }
+    sf::Texture tpianoCsharp;
+    if (!tpianoCsharp.loadFromFile("../Images/9.bmp")){
+        return EXIT_FAILURE;
+    }
+    sf::Texture tpianoD;
+    if (!tpianoD.loadFromFile("../Images/O.bmp")){
+        return EXIT_FAILURE;
+    }
+    sf::Texture tpianoDsharp;
+    if (!tpianoDsharp.loadFromFile("../Images/0.bmp")){
+        return EXIT_FAILURE;
+    }
+    sf::Texture tpianoE;
+    if (!tpianoE.loadFromFile("../Images/P.bmp")){
+        return EXIT_FAILURE;
+    }
+
 
 
     // Loop para deixar a janela aberta
@@ -100,81 +165,129 @@ int lv2::Run(sf::RenderWindow &Tela){
                             sf::sleep(sf::milliseconds(250));
                         break;
                         case sf::Keyboard::Num2:
+                            piano.setTexture(&tpianocsharp, true);
+                            Tela.draw(piano);
+                            Tela.display();
                             sound.setBuffer(csharp);
                             sound.play();
                             sf::sleep(sf::milliseconds(250));
                         break;
                         case sf::Keyboard::W:
+                            piano.setTexture(&tpianod, true);
+                            Tela.draw(piano);
+                            Tela.display();
                             sound.setBuffer(d);
                             sound.play();
                             sf::sleep(sf::milliseconds(250));
                         break;
                         case sf::Keyboard::Num3:
+                            piano.setTexture(&tpianodsharp, true);
+                            Tela.draw(piano);
+                            Tela.display();
                             sound.setBuffer(dsharp);
                             sound.play();
                             sf::sleep(sf::milliseconds(250));
                         break;
                         case sf::Keyboard::E:
+                            piano.setTexture(&tpianoe, true);
+                            Tela.draw(piano);
+                            Tela.display();
                             sound.setBuffer(e);
                             sound.play();
                             sf::sleep(sf::milliseconds(250));
                         break;
                         case sf::Keyboard::R:
+                            piano.setTexture(&tpianof, true);
+                            Tela.draw(piano);
+                            Tela.display();
                             sound.setBuffer(f);
                             sound.play();
                             sf::sleep(sf::milliseconds(250));
                         break;
                         case sf::Keyboard::Num5:
+                            piano.setTexture(&tpianofsharp, true);
+                            Tela.draw(piano);
+                            Tela.display();
                             sound.setBuffer(fsharp);
                             sound.play();
                             sf::sleep(sf::milliseconds(250));
                         break;
                         case sf::Keyboard::T:
+                            piano.setTexture(&tpianog, true);
+                            Tela.draw(piano);
+                            Tela.display();
                             sound.setBuffer(g);
                             sound.play();
                             sf::sleep(sf::milliseconds(250));
                         break;
                         case sf::Keyboard::Num6:
+                            piano.setTexture(&tpianogsharp, true);
+                            Tela.draw(piano);
+                            Tela.display();
                             sound.setBuffer(gsharp);
                             sound.play();
                             sf::sleep(sf::milliseconds(250));
                         break;
                         case sf::Keyboard::Y:
+                            piano.setTexture(&tpianoa, true);
+                            Tela.draw(piano);
+                            Tela.display();
                             sound.setBuffer(a);
                             sound.play();
                             sf::sleep(sf::milliseconds(250));
                         break;
                         case sf::Keyboard::Num7:
+                            piano.setTexture(&tpianoasharp, true);
+                            Tela.draw(piano);
+                            Tela.display();
                             sound.setBuffer(asharp);
                             sound.play();
                             sf::sleep(sf::milliseconds(250));
                         break;
                         case sf::Keyboard::U:
+                            piano.setTexture(&tpianob, true);
+                            Tela.draw(piano);
+                            Tela.display();
                             sound.setBuffer(b);
                             sound.play();
                             sf::sleep(sf::milliseconds(250));
                         break;
                         case sf::Keyboard::I:
+                            piano.setTexture(&tpianoC, true);
+                            Tela.draw(piano);
+                            Tela.display();
                             sound.setBuffer(C);
                             sound.play();
                             sf::sleep(sf::milliseconds(250));
                         break;
                         case sf::Keyboard::Num9:
+                            piano.setTexture(&tpianoCsharp, true);
+                            Tela.draw(piano);
+                            Tela.display();
                             sound.setBuffer(Csharp);
                             sound.play();
                             sf::sleep(sf::milliseconds(250));
                         break;
                         case sf::Keyboard::O:
+                            piano.setTexture(&tpianoD, true);
+                            Tela.draw(piano);
+                            Tela.display();
                             sound.setBuffer(D);
                             sound.play();
                             sf::sleep(sf::milliseconds(250));
                         break;
                         case sf::Keyboard::Num0:
+                            piano.setTexture(&tpianoDsharp, true);
+                            Tela.draw(piano);
+                            Tela.display();
                             sound.setBuffer(Dsharp);
                             sound.play();
                             sf::sleep(sf::milliseconds(250));
                         break;
                         case sf::Keyboard::P:
+                            piano.setTexture(&tpianoE, true);
+                            Tela.draw(piano);
+                            Tela.display();
                             sound.setBuffer(E);
                             sound.play();
                             sf::sleep(sf::milliseconds(250));
