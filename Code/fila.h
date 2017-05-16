@@ -29,6 +29,10 @@ Fila::Fila(int _tam){
 	array = new char[tam];
 	frente = 0;
 	tras = tam;
+	
+	for (i = 0; i< tam, i++){
+		array[i] = "";
+	}
 }
 
 
@@ -75,28 +79,29 @@ bool Fila::Cheia(){
 
 bool Fila::Igual(Fila &f1, Fila &f2, int _tam){
 	bool equalForNow;
-	int deuCerto1, deuCerto2, aux;
+	char deuCerto1, deuCerto2, aux;
 	Fila fAux1(50);
 	Fila fAux2(50);
+	
 	
 	equalForNow = true;
 	
 	while ((f1.Vazia() == false) && (f2.Vazia() == false)) {
 		deuCerto1 = f1.Retira();
 		deuCerto2 = f2.Retira();
-		if (deuCerto1 != 0)
+		if (deuCerto1 != "")
 			fAux1.Insere(deuCerto1);
-		if (deuCerto2 != 0)
+		if (deuCerto2 != "")
 			fAux2.Insere(deuCerto2);
 		//isso aqui checou se o número de elementos das filas era igual
 		
-		if ((deuCerto1 != 0) && (deuCerto2 == 0)){
+		if ((deuCerto1 != "") && (deuCerto2 == "")){
 			equalForNow = false;
 		}
-		if ((deuCerto1 == 0) && (deuCerto2 != 0)){
+		if ((deuCerto1 == "") && (deuCerto2 != "")){
 			equalForNow = false;
 		}
-		if ((deuCerto1 != 0) && (deuCerto2 != 0)){
+		if ((deuCerto1 != "") && (deuCerto2 != "")){
 			if (deuCerto1 != deuCerto2){
 				equalForNow = false;
 			}
