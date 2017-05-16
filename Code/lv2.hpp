@@ -6,7 +6,7 @@
 class lv2 : public cScreen{
 private:
     int turno;   // 0 = pausa | 1 = pc | 2 = jogador
-    Fila fila1();
+    Fila fila1(1);
 public:
 	lv2(void);
 	virtual int Run(sf::RenderWindow &Tela);

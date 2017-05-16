@@ -46,7 +46,7 @@ bool Fila::Insere(char nota){
 		return false;
 }
 
-char Fila::Retira(&bool deuCerto){
+char Fila::Retira(bool &deuCerto){
 	char aux = "";
 	if (!Fila::Vazia()){
 		aux = array[frente];
