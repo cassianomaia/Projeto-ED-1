@@ -126,7 +126,8 @@ bool Fila::Igual(Fila &f1, Fila &f2, int _tam){
 
 int Fila::Contador(Fila &f1){
 	Fila fAux(50);
-	int cont, x;
+	int cont;
+	char x;
 	
 	while (f1.Vazia() != 1){
 		x = f1.Retira();
