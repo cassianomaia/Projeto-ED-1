@@ -3,19 +3,18 @@ using namespace std;
 
 class Fila {
 	public:	
-		Fila();
 		Fila(int);
 		~Fila();
-		bool Insere(int);
-		int Retira();
+		bool Insere(char);
+		char Retira();
 		bool Vazia();
 		bool Cheia();
-		bool Igual(Fila, Fila, int);
-		int Contador(Fila);
+		bool Igual(Fila&, Fila&, int);
+		int Contador(Fila&);
 		
 	private:
 		// do, do#, re, re#, mi, fa, fa#, sol, sol#, la, la#, si [1 a 13] //não usaremos 0 senão a lógica não funciona
-		int *array;
+		char *array;
 		int frente;   //frente == primeiro elemento
 		int tras;	  //tras   == ultimo elemento
 		int tam;
@@ -23,12 +22,9 @@ class Fila {
 		
 };
 
-Fila::Fila(){
-}
-
 Fila::Fila(int _tam){
 	tam = _tam;
-	array = new int[tam];
+	array = new char[tam];
 	frente = 0;
 	tras = tam;
 }
@@ -38,7 +34,7 @@ Fila::~Fila(){
 	delete [] array;
 }
 
-bool Fila::Insere(int nota){
+bool Fila::Insere(char nota){
 	if (!Fila::Cheia()) {
 		array[tras] = nota;
 		tras = (tras + 1)% tam;
@@ -48,7 +44,7 @@ bool Fila::Insere(int nota){
 		return false;
 }
 
-int Fila::Retira(){
+char Fila::Retira(){
 	int aux = 0;
 	if (!Fila::Vazia()){
 		aux = array[frente];
@@ -74,11 +70,11 @@ bool Fila::Cheia(){
 }
 
 
-bool Fila::Igual(Fila f1, Fila f2, int _tam){
+bool Fila::Igual(Fila &f1, Fila &f2, int _tam){
 	bool equalForNow;
 	int deuCerto1, deuCerto2, aux;
-	Fila fAux1;
-	Fila fAux2;
+	Fila fAux1(50);
+	Fila fAux2(50);
 	
 	equalForNow = true;
 	
@@ -125,8 +121,8 @@ bool Fila::Igual(Fila f1, Fila f2, int _tam){
 
 // metodo adicionado, pronto para ser usado
 
-int Fila::Contador(Fila f1){
-	Fila fAux;
+int Fila::Contador(Fila &f1){
+	Fila fAux(50);
 	int cont, x;
 	
 	while (f1.Vazia() != 1){
