@@ -34,31 +34,31 @@ selectionmenu::selectionmenu(float width, float height){
 	menu[1].setFont(font);
 	menu[1].setFillColor(sf::Color::Blue);
 	menu[1].setString("1");
-	menu[1].setPosition(sf::Vector2f(width / 2, 300));
+	menu[1].setPosition(sf::Vector2f(400, 250));
 	menu[1].setCharacterSize(50);
 
 	menu[2].setFont(font);
 	menu[2].setFillColor(sf::Color::Black);
 	menu[2].setString("2");
-	menu[2].setPosition(sf::Vector2f(width / 2, 350));
+	menu[2].setPosition(sf::Vector2f(450, 250));
 	menu[2].setCharacterSize(50);
 
 	menu[3].setFont(font);
 	menu[3].setFillColor(sf::Color::Black);
 	menu[3].setString("3");
-	menu[3].setPosition(sf::Vector2f(width / 2, 400));
+	menu[3].setPosition(sf::Vector2f(500, 250));
 	menu[3].setCharacterSize(50);
 
 	menu[4].setFont(font);
 	menu[4].setFillColor(sf::Color::Black);
 	menu[4].setString("About");
-	menu[4].setPosition(sf::Vector2f(width / 2, 450));
+	menu[4].setPosition(sf::Vector2f(width / 2, 325));
 	menu[4].setCharacterSize(50);
 
 	menu[5].setFont(font);
 	menu[5].setFillColor(sf::Color::Black);
 	menu[5].setString("How to Play");
-	menu[5].setPosition(sf::Vector2f(width / 2, 500));
+	menu[5].setPosition(sf::Vector2f(width / 2, 400));
 	menu[5].setCharacterSize(50);
 
 	selectedItemIndex = 0;

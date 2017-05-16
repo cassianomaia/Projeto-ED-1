@@ -89,11 +89,11 @@ int lv2::Run(sf::RenderWindow &Tela){
 	sf::RectangleShape piano(sf::Vector2f(503, 203));
     piano.setPosition(149, 200);
     sf::Texture tpiano;
-    if (!tpiano.loadFromFile("../Images/teclado_real_oficial1.bmp")){
+    if (!tpiano.loadFromFile("../Images/teclado_real_oficial.bmp")){
         return EXIT_FAILURE;
     }
     sf::Texture tpianoc;
-    if (!tpianoc.loadFromFile("../Images/Q1.bmp")){
+    if (!tpianoc.loadFromFile("../Images/Q.bmp")){
         return EXIT_FAILURE;
     }
     sf::Texture tpianocsharp;
@@ -161,12 +161,34 @@ int lv2::Run(sf::RenderWindow &Tela){
         return EXIT_FAILURE;
     }
 
-
-
     // Loop para deixar a janela aberta
     while (Tela.isOpen()){
+    sf::Event event;
+    switch (turno){
+//turno pause
+    case 0:
         Tela.clear(sf::Color::White);
-        sf::Event event;
+        while (Tela.pollEvent(event)){
+            if (event.type == sf::Event::KeyPressed){
+                if (event.key.code == sf::Keyboard::Space){
+                    turno = 2;
+                }
+            }
+            if (event.type == sf::Event::Closed){
+                Tela.close();
+            }
+        }
+        piano.setTexture(&tpiano, true);
+        Tela.draw(piano);
+        Tela.display();
+    break;
+//turno da maquina
+    case 1:
+
+    break;
+//turno do jogador
+    case 2:
+        Tela.clear(sf::Color::White);
         // Checa os eventos em loop
         while (Tela.pollEvent(event)){
             switch (event.type){ 
@@ -311,6 +333,9 @@ int lv2::Run(sf::RenderWindow &Tela){
                         case sf::Keyboard::Escape:
                             return 0;
                         break;
+                        case sf::Keyboard::Space:
+                            turno = 0;
+                        break;
                     }
                 break;
                 case sf::Event::Closed:
@@ -321,8 +346,21 @@ int lv2::Run(sf::RenderWindow &Tela){
         piano.setTexture(&tpiano, true);
         Tela.draw(piano);
         Tela.display();
-    }
+    break;
+//testando para ir para o prox level, ou fim de jogo (turno =5)
+    case 4:
 
+    break;
+//caso perca
+    case 5:
+
+    break;
+//caso ganhe
+    case 6:
+
+    break;
+    }
+    }
 	//Never reaching this point normally, but just in case, exit the Telalication
 	return (-1);
 }
