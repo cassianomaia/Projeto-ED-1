@@ -8,7 +8,7 @@ class Fila {
 		Fila(int);
 		~Fila();
 		bool Insere(char);
-		char Retira();
+		char Retira(bool&);
 		bool Vazia();
 		bool Cheia();
 		bool Igual(Fila&, Fila&, int);
@@ -46,15 +46,16 @@ bool Fila::Insere(char nota){
 		return false;
 }
 
-char Fila::Retira(){
-	int aux = 0;
+char Fila::Retira(&bool deuCerto){
+	char aux = "";
 	if (!Fila::Vazia()){
 		aux = array[frente];
 		frente = (frente + 1)% tam;
 		return aux;
+		deuCerto = true;
 	}
 	else
-		return 0;
+		deuCerto = false;
 }
 
 bool Fila::Vazia(){
