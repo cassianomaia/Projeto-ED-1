@@ -11,6 +11,7 @@ class Fila {
 		bool Vazia();
 		bool Cheia();
 		bool Igual(Fila, Fila, int);
+		int Contador(Fila);
 		
 	private:
 		// do, do#, re, re#, mi, fa, fa#, sol, sol#, la, la#, si [1 a 13] //não usaremos 0 senão a lógica não funciona
@@ -123,3 +124,21 @@ bool Fila::Igual(Fila f1, Fila f2, int _tam){
 } 
 
 // metodo adicionado, pronto para ser usado
+
+int Fila::Contador(Fila f1){
+	Fila fAux;
+	int cont, x;
+	
+	while (f1.Vazia() != 1){
+		x = f1.Retira();
+		cont++;
+		fAux.Insere(x);
+	}
+	
+	while (fAux.Vazia() != 1){
+		x = fAux.Retira();
+		f1.Insere(x);
+	}
+	
+	return cont;
+}
