@@ -5,14 +5,12 @@
 
 class howto : public cScreen{
 private:
-	bool playing;
 public:
 	howto(void);
 	virtual int Run(sf::RenderWindow &Tela);
 };
 
 howto::howto(void){
-	playing = false;
 }
 
 int howto::Run(sf::RenderWindow &Tela){
