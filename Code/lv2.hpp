@@ -6,7 +6,7 @@
 class lv2 : public cScreen{
 private:
     int turno;   // 0 = pausa | 1 = pc | 2 = jogador
-    Fila fila1(1);
+    Fila fila1();
 public:
 	lv2(void);
 	virtual int Run(sf::RenderWindow &Tela);
@@ -18,6 +18,9 @@ lv2::lv2(void){
 
 int lv2::Run(sf::RenderWindow &Tela){
     turno = 0;
+
+    fila1.Insere('d');
+
     sf::SoundBuffer c;
     if (!c.loadFromFile("../Sounds/1.wav"))
         return -1;

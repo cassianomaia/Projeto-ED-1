@@ -72,9 +72,6 @@ int menu::Run(sf::RenderWindow &Tela){
             			case sf::Keyboard::Return:
             				return (menu1.GetPressedItem());
             			break;
-                        case sf::Keyboard::Escape:
-                            Tela.close();
-                        break;
             		}
             	break;
             }
