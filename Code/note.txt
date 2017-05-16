@@ -1,0 +1,16 @@
+01 = c
+02 = csharp
+03 = d
+04 = dsharp
+05 = e
+06 = f
+07 = fsharp
+08 = g
+09 = gsharp
+10 = a
+11 = asharp
+12 = b
+13 = C
+14 = Csharp
+15 = D
+16 = Dsharp

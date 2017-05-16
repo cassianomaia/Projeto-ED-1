@@ -8,6 +8,7 @@ using namespace std;
 class lv2 : public cScreen{
 private:
     int turno;   // 0 = pausa | 1 = pc | 2 = jogador
+    int tamM, tamT;
     Fila filap;
     Fila filac;
     Fila filas;
@@ -23,6 +24,7 @@ lv2::lv2(void){
 
 int lv2::Run(sf::RenderWindow &Tela){
     turno = 0;
+    tamM = 2;
 
     filam.Insere('d');filam.Insere('d');filam.Insere('a');
     filam.Insere('a');filam.Insere('b');filam.Insere('b');
@@ -31,6 +33,7 @@ int lv2::Run(sf::RenderWindow &Tela){
     filam.Insere('e');filam.Insere('e');filam.Insere('d');
     filam.Insere('d');   
 
+    tamT = filam.Contador();
 
     sf::SoundBuffer c;
     if (!c.loadFromFile("../Sounds/1.wav"))

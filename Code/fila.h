@@ -1,6 +1,5 @@
 #ifndef FilaClass
 #define Filaclass
-
 #include <iostream>
 #include <cstdlib>
 using namespace std;
