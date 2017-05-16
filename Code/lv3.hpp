@@ -4,7 +4,7 @@
 
 class lv3 : public cScreen{
 private:
-    Fila fila1();
+
 public:
 	lv3(void);
 	virtual int Run(sf::RenderWindow &Tela);

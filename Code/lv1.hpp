@@ -1,11 +1,9 @@
 #include "cScreen.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-#include "fila.h"
 
 class lv1 : public cScreen{
 private:
-    Fila fila1();
 public:
 	lv1(void);
 	virtual int Run(sf::RenderWindow &Tela);

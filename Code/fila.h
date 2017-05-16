@@ -1,3 +1,5 @@
+#ifndef FilaClass
+#define Filaclass
 #include <iostream>
 using namespace std;
 
@@ -138,3 +140,5 @@ int Fila::Contador(Fila &f1){
 	
 	return cont;
 }
+
+#endif

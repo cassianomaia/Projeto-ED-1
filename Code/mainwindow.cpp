@@ -17,6 +17,10 @@ int main(){
     Screens.push_back(&s2);
     lv3 s3;
     Screens.push_back(&s3);
+    about s4;
+    Screens.push_back(&s4);
+    howto s5;
+    Screens.push_back(&s5);
 
     //Main loop
     while (screen >= 0)

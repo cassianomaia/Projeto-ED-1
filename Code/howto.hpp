@@ -27,7 +27,14 @@ int howto::Run(sf::RenderWindow &Tela){
             if (event.type == sf::Event::Closed){
                 Tela.close(); 
             }
+            if (event.type == sf::Event::KeyPressed){
+                if (event.key.code == sf::Keyboard::Escape){
+                    return 0;
+                }
+            }
         }
+        Tela.clear(sf::Color::White);
+        Tela.display();
     }
 
 	//Never reaching this point normally, but just in case, exit the Telalication
