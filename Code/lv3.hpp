@@ -1,23 +1,20 @@
 #include "cScreen.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-#include "fila.h"
 
-class lv2 : public cScreen{
+class lv3 : public cScreen{
 private:
-    int turno;   // 0 = pausa | 1 = pc | 2 = jogador
-    Fila fila1(48);
+    Fila fila1();
 public:
-	lv2(void);
+	lv3(void);
 	virtual int Run(sf::RenderWindow &Tela);
 };
 
-lv2::lv2(void){
+lv3::lv3(void){
 
 }
 
-int lv2::Run(sf::RenderWindow &Tela){
-    turno = 0;
+int lv3::Run(sf::RenderWindow &Tela){
     sf::SoundBuffer c;
     if (!c.loadFromFile("../Sounds/1.wav"))
         return -1;
@@ -72,14 +69,14 @@ int lv2::Run(sf::RenderWindow &Tela){
     sf::Sound sound;
     
 
-	sf::RectangleShape piano(sf::Vector2f(503, 203));
-    piano.setPosition(149, 200);
+	sf::RectangleShape piano(sf::Vector2f(500, 200));
+    piano.setPosition(150, 200);
     sf::Texture tpiano;
-    if (!tpiano.loadFromFile("../Images/teclado_real_oficial1.bmp")){
+    if (!tpiano.loadFromFile("../Images/teclado_real_oficial.bmp")){
         return EXIT_FAILURE;
     }
     sf::Texture tpianoc;
-    if (!tpianoc.loadFromFile("../Images/Q1.bmp")){
+    if (!tpianoc.loadFromFile("../Images/Q.bmp")){
         return EXIT_FAILURE;
     }
     sf::Texture tpianocsharp;
@@ -146,7 +143,6 @@ int lv2::Run(sf::RenderWindow &Tela){
     if (!tpianoE.loadFromFile("../Images/P.bmp")){
         return EXIT_FAILURE;
     }
-
 
 
     // Loop para deixar a janela aberta

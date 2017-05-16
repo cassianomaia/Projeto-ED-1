@@ -291,6 +291,9 @@ int lv1::Run(sf::RenderWindow &Tela){
                             sound.play();
                             sf::sleep(sf::milliseconds(250));
                         break;
+                        case sf::Keyboard::Escape:
+                            return 0;
+                        break;
                     }
                 break;
                 case sf::Event::Closed:
