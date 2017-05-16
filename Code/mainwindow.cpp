@@ -1,12 +1,16 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Screens.hpp"
+#include "fila.h"
 
 int main(){
+    Fila filap;
+    Fila filac;
+    Fila filas;
 
     std::vector<cScreen*> Screens;
     int screen = 0;
-
+    
     sf::RenderWindow Tela(sf::VideoMode(800, 600), "Pianus");
    
     menu s0;

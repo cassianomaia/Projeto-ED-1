@@ -1,25 +1,36 @@
 #include "cScreen.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include <iostream>
+using namespace std;
 #include "fila.h"
 
 class lv2 : public cScreen{
 private:
     int turno;   // 0 = pausa | 1 = pc | 2 = jogador
-    Fila fila1();
+    Fila filap;
+    Fila filac;
+    Fila filas;
+    Fila filam;
+
 public:
 	lv2(void);
 	virtual int Run(sf::RenderWindow &Tela);
 };
 
 lv2::lv2(void){
-
 }
 
 int lv2::Run(sf::RenderWindow &Tela){
     turno = 0;
 
-    fila1.Insere('d');
+    filam.Insere('d');filam.Insere('d');filam.Insere('a');
+    filam.Insere('a');filam.Insere('b');filam.Insere('b');
+    filam.Insere('a');filam.Insere('a');filam.Insere('g');
+    filam.Insere('g');filam.Insere('f');filam.Insere('f');
+    filam.Insere('e');filam.Insere('e');filam.Insere('d');
+    filam.Insere('d');   
+
 
     sf::SoundBuffer c;
     if (!c.loadFromFile("../Sounds/1.wav"))
