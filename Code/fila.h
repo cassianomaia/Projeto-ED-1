@@ -25,6 +25,7 @@ class Fila {
 };
 
 Fila::Fila(int _tam){
+	int i;
 	tam = _tam;
 	array = new char[tam];
 	frente = 0;
