@@ -3,11 +3,12 @@
 #include <iostream>
 #include <cstdlib>
 using namespace std;
+
 bool deuCerto = true;
 
 struct node{
 
-    char info;
+    int info;
 
     struct node *next;
 
@@ -25,9 +26,9 @@ class Fila{
 
         Fila();
 
-        void Insere(char);
+        void Insere(int);
 
-        char Retira();
+        int Retira();
         
         bool Vazia();
         
@@ -55,7 +56,7 @@ bool Fila::Vazia(){
 		return 0;
 }
 
-void Fila::Insere(char nota){
+void Fila::Insere(int nota){
 
     node *temp = new node;
     
@@ -77,10 +78,10 @@ void Fila::Insere(char nota){
 
 }
 
-char Fila::Retira(){
+int Fila::Retira(){
 
     node *temp = new node;
-    char x;
+    int x;
     
     if (Fila::Vazia() != 1){
     	if (tras == frente){
@@ -116,7 +117,7 @@ bool Fila::Compara(Fila &f1, Fila &f2){
 	
 	node *temp1 = new node;
 	node *temp2 = new node;
-	char aux;
+	int aux;
 	int cont1 = 0, cont2 = 0;
 	Fila fAux1;
 	Fila fAux2;
@@ -174,7 +175,7 @@ int Fila::Contador(){
 	
 	Fila fAux;
 	int cont = 0;
-	char aux;
+	int aux;
 	
 	while (this->Vazia() != 1){
 		aux = this->Retira();
@@ -189,7 +190,3 @@ int Fila::Contador(){
 	
 	return cont;
 }
-
-
-
-#endif
