@@ -184,7 +184,7 @@ int lv2::Run(sf::RenderWindow &Tela){
     break;
 //turno da maquina
     case 1:
-
+    
     break;
 //turno do jogador
     case 2:
