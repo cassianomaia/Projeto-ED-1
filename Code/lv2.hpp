@@ -22,7 +22,6 @@ lv2::lv2(void){
 }
 
 int lv2::Run(sf::RenderWindow &Tela){
-    turno = 0;
 
     filam.Insere(3);filam.Insere(3);filam.Insere(10);
     filam.Insere(10);filam.Insere(12);filam.Insere(12);
@@ -31,7 +30,9 @@ int lv2::Run(sf::RenderWindow &Tela){
     filam.Insere(5);filam.Insere(5);filam.Insere(3);
     filam.Insere(3);   
     tamTotal = filam.Contador();
-
+    tamPlayer = 0;
+    turno = 0;
+    tamAtual = 0;
 
     sf::SoundBuffer c;
     if (!c.loadFromFile("../Sounds/1.wav"))
@@ -168,194 +169,193 @@ int lv2::Run(sf::RenderWindow &Tela){
         switch (turno){
     //turno pause
         case 0:
-            cout << "Case 0"<<endl;
             Tela.clear(sf::Color::White);
             while (Tela.pollEvent(event)){
-            if (event.type == sf::Event::KeyPressed){
-                if (event.key.code == sf::Keyboard::Space){
-                    turno = 2;
-                    /*if (filac.Contador() == 0){
-                        turno = 1;
-                    }else{
-                        turno = 2;
-                    }*/
+                if (event.type == sf::Event::KeyPressed){
+                    if (event.key.code == sf::Keyboard::Space){
+                        if (filac.Contador() == 0){
+                            turno = 1;
+                        }else{
+                            turno = 2;
+                        }
+                    }
+                }
+                if (event.type == sf::Event::Closed){
+                        Tela.close();
                 }
             }
-            if (event.type == sf::Event::Closed){
-                Tela.close();
-            }
-            }
-            cout << "render"<<endl;
             piano.setTexture(&tpiano, true);
             Tela.draw(piano);
             Tela.display();
         break;
     //turno da maquina
-    /*
-        case 1:
-        Tela.clear(sf::Color::White);
-        if (!filam.Vazia()){
-        retira = filam.Retira();
-        filac.Insere(retira);
-        retira = filam.Retira();
-        filac.Insere(retira);
-        tamAtual = filac.Contador();
-        for(i = tamAtual; i>0; i--){
-            retira = filac.Retira();
-            switch (retira){
-                case 1:
-                    piano.setTexture(&tpianoc, true);
-                    Tela.draw(piano);
-                    Tela.display();
-                    sound.setBuffer(c);
-                    sound.play();
-                    sf::sleep(sf::milliseconds(250));
-                break;
-                case 2:
-                    piano.setTexture(&tpianocsharp, true);
-                    Tela.draw(piano);
-                    Tela.display();
-                    sound.setBuffer(csharp);
-                    sound.play();
-                    sf::sleep(sf::milliseconds(250));
-                break;
-                case 3:
-                    piano.setTexture(&tpianod, true);
-                    Tela.draw(piano);
-                    Tela.display();
-                    sound.setBuffer(d);
-                    sound.play();
-                    sf::sleep(sf::milliseconds(250));
-                break;
-                case 4:
-                    piano.setTexture(&tpianodsharp, true);
-                    Tela.draw(piano);
-                    Tela.display();
-                    sound.setBuffer(dsharp);
-                    sound.play();
-                    sf::sleep(sf::milliseconds(250));
-                break;
-                case 5:
-                    piano.setTexture(&tpianoe, true);
-                    Tela.draw(piano);
-                    Tela.display();
-                    sound.setBuffer(e);
-                    sound.play();
-                    sf::sleep(sf::milliseconds(250));
-                break;
-                case 6:
-                    piano.setTexture(&tpianof, true);
-                    Tela.draw(piano);
-                    Tela.display();
-                    sound.setBuffer(f);
-                    sound.play();
-                    sf::sleep(sf::milliseconds(250));
-                break;
-                case 7:
-                    piano.setTexture(&tpianofsharp, true);
-                    Tela.draw(piano);
-                    Tela.display();
-                    sound.setBuffer(fsharp);
-                    sound.play();
-                    sf::sleep(sf::milliseconds(250));
-                break;
-                case 8:
-                    piano.setTexture(&tpianog, true);
-                    Tela.draw(piano);
-                    Tela.display();
-                    sound.setBuffer(g);
-                    sound.play();
-                    sf::sleep(sf::milliseconds(250));
-                break;
-                case 9:
-                    piano.setTexture(&tpianogsharp, true);
-                    Tela.draw(piano);
-                    Tela.display();
-                    sound.setBuffer(gsharp);
-                    sound.play();
-                    sf::sleep(sf::milliseconds(250));
-                break;
-                case 10:
-                    piano.setTexture(&tpianoa, true);
-                    Tela.draw(piano);
-                    Tela.display();
-                    sound.setBuffer(a);
-                    sound.play();
-                    sf::sleep(sf::milliseconds(250));
-                break;
-                case 11:
-                    piano.setTexture(&tpianoasharp, true);
-                    Tela.draw(piano);
-                    Tela.display();
-                    sound.setBuffer(asharp);
-                    sound.play();
-                    sf::sleep(sf::milliseconds(250));
-                break;
-                case 12:
-                    piano.setTexture(&tpianob, true);
-                    Tela.draw(piano);
-                    Tela.display();
-                    sound.setBuffer(b);
-                    sound.play();
-                    sf::sleep(sf::milliseconds(250));
-                break;
-                case 13:
-                    piano.setTexture(&tpianoC, true);
-                    Tela.draw(piano);
-                    Tela.display();
-                    sound.setBuffer(C);
-                    sound.play();
-                    sf::sleep(sf::milliseconds(250));
-                break;
-                case 14:
-                    piano.setTexture(&tpianoCsharp, true);
-                    Tela.draw(piano);
-                    Tela.display();
-                    sound.setBuffer(Csharp);
-                    sound.play();
-                    sf::sleep(sf::milliseconds(250));
-                break;
-                case 15:
-                    piano.setTexture(&tpianoD, true);
-                    Tela.draw(piano);
-                    Tela.display();
-                    sound.setBuffer(D);
-                    sound.play();
-                    sf::sleep(sf::milliseconds(250));
-                break;
-                case 16:
-                    piano.setTexture(&tpianoDsharp, true);
-                    Tela.draw(piano);
-                    Tela.display();
-                    sound.setBuffer(Dsharp);
-                    sound.play();
-                    sf::sleep(sf::milliseconds(250));
-                break;
-                case 17:
-                    piano.setTexture(&tpianoE, true);
-                    Tela.draw(piano);
-                    Tela.display();
-                    sound.setBuffer(E);
-                    sound.play();
-                    sf::sleep(sf::milliseconds(250));
-                break;
-            }
-        }
-        sf::sleep(sf::milliseconds(250));
-        piano.setTexture(&tpiano, true);
-        Tela.draw(piano);
-        Tela.display();        
-        }else{
-            turno = 6;
-        }
     
-        
+        case 1:
+            Tela.clear(sf::Color::White);
+            if (!filam.Vazia()){
+                retira = filam.Retira();
+                filac.Insere(retira);
+                retira = filam.Retira();
+                filac.Insere(retira);
+                tamAtual = filac.Contador();
+                for(i = tamAtual; i>0; i--){
+                    retira = filac.Retira();
+                    switch (retira){
+                        case 1:
+                            piano.setTexture(&tpianoc, true);
+                            Tela.draw(piano);
+                            Tela.display();
+                            sound.setBuffer(c);
+                            sound.play();
+                            sf::sleep(sf::milliseconds(250));
+                        break;
+                        case 2:
+                            piano.setTexture(&tpianocsharp, true);
+                            Tela.draw(piano);
+                            Tela.display();
+                            sound.setBuffer(csharp);
+                            sound.play();
+                            sf::sleep(sf::milliseconds(250));
+                        break;
+                        case 3:
+                            piano.setTexture(&tpianod, true);
+                            Tela.draw(piano);
+                            Tela.display();
+                            sound.setBuffer(d);
+                            sound.play();
+                            sf::sleep(sf::milliseconds(250));
+                        break;
+                        case 4:
+                            piano.setTexture(&tpianodsharp, true);
+                            Tela.draw(piano);
+                            Tela.display();
+                            sound.setBuffer(dsharp);
+                            sound.play();
+                            sf::sleep(sf::milliseconds(250));
+                        break;
+                        case 5:
+                            piano.setTexture(&tpianoe, true);
+                            Tela.draw(piano);
+                            Tela.display();
+                            sound.setBuffer(e);
+                            sound.play();
+                            sf::sleep(sf::milliseconds(250));
+                        break;
+                        case 6:
+                            piano.setTexture(&tpianof, true);
+                            Tela.draw(piano);
+                            Tela.display();
+                            sound.setBuffer(f);
+                            sound.play();
+                            sf::sleep(sf::milliseconds(250));
+                        break;
+                        case 7:
+                            piano.setTexture(&tpianofsharp, true);
+                            Tela.draw(piano);
+                            Tela.display();
+                            sound.setBuffer(fsharp);
+                            sound.play();
+                            sf::sleep(sf::milliseconds(250));
+                        break;
+                        case 8:
+                            piano.setTexture(&tpianog, true);
+                            Tela.draw(piano);
+                            Tela.display();
+                            sound.setBuffer(g);
+                            sound.play();
+                            sf::sleep(sf::milliseconds(250));
+                        break;
+                        case 9:
+                            piano.setTexture(&tpianogsharp, true);
+                            Tela.draw(piano);
+                            Tela.display();
+                            sound.setBuffer(gsharp);
+                            sound.play();
+                            sf::sleep(sf::milliseconds(250));
+                        break;
+                        case 10:
+                            piano.setTexture(&tpianoa, true);
+                            Tela.draw(piano);
+                            Tela.display();
+                            sound.setBuffer(a);
+                            sound.play();
+                            sf::sleep(sf::milliseconds(250));
+                        break;
+                        case 11:
+                            piano.setTexture(&tpianoasharp, true);
+                            Tela.draw(piano);
+                            Tela.display();
+                            sound.setBuffer(asharp);
+                            sound.play();
+                            sf::sleep(sf::milliseconds(250));
+                        break;
+                        case 12:
+                            piano.setTexture(&tpianob, true);
+                            Tela.draw(piano);
+                            Tela.display();
+                            sound.setBuffer(b);
+                            sound.play();
+                            sf::sleep(sf::milliseconds(250));
+                        break;
+                        case 13:
+                            piano.setTexture(&tpianoC, true);
+                            Tela.draw(piano);
+                            Tela.display();
+                            sound.setBuffer(C);
+                            sound.play();
+                            sf::sleep(sf::milliseconds(250));
+                        break;
+                        case 14:
+                            piano.setTexture(&tpianoCsharp, true);
+                            Tela.draw(piano);
+                            Tela.display();
+                            sound.setBuffer(Csharp);
+                            sound.play();
+                            sf::sleep(sf::milliseconds(250));
+                        break;
+                        case 15:
+                            piano.setTexture(&tpianoD, true);
+                            Tela.draw(piano);
+                            Tela.display();
+                            sound.setBuffer(D);
+                            sound.play();
+                            sf::sleep(sf::milliseconds(250));
+                        break;
+                        case 16:
+                            piano.setTexture(&tpianoDsharp, true);
+                            Tela.draw(piano);
+                            Tela.display();
+                            sound.setBuffer(Dsharp);
+                            sound.play();
+                            sf::sleep(sf::milliseconds(250));
+                        break;
+                        case 17:
+                            piano.setTexture(&tpianoE, true);
+                            Tela.draw(piano);
+                            Tela.display();
+                            sound.setBuffer(E);
+                            sound.play();
+                            sf::sleep(sf::milliseconds(250));
+                        break;
+                    }
+                    filac.Insere(retira);
+                    sf::sleep(sf::milliseconds(250));
+                    piano.setTexture(&tpiano, true);
+                    Tela.draw(piano);
+                    Tela.display(); 
+                }
+                sf::sleep(sf::milliseconds(250));
+                piano.setTexture(&tpiano, true);
+                Tela.draw(piano);
+                Tela.display();
+                turno = 2;        
+            }else{
+                turno = 6;
+            }
         break;
-    */
         //turno do jogador
         case 2:
         cout << "case 2" <<endl;
-            tamPlayer = 0;
             Tela.clear(sf::Color::White);
             // Checa os eventos em loop
             while (Tela.pollEvent(event)){
