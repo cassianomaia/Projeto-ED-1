@@ -46,9 +46,9 @@ Fila::Fila(){
 
 bool Fila::Vazia(){
 	if (tras == NULL && frente == NULL)
-		return 1;
+		return true;
 	else
-		return 0;
+		return false;
 }
 
 void Fila::Insere(int nota){

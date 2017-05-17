@@ -16,8 +16,8 @@ int main(){
     Screens.push_back(&s1);
     lv2 s2;
     Screens.push_back(&s2);
-//    lv3 s3;
-//    Screens.push_back(&s3);
+    lv3 s3;
+    Screens.push_back(&s3);
     about s4;
     Screens.push_back(&s4);
     howto s5;
