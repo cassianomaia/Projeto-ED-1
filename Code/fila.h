@@ -143,7 +143,7 @@ bool Fila::Compara(Fila &f1, Fila &f2){
 				temp1 = temp1->next;
 				temp2 = temp2->next;
 			} else
-				igual = false;
+				return false;
 				
 		} while ((temp1 != f1.tras) && (temp2 != f2.tras));
 	} else
