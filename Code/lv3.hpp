@@ -4,10 +4,9 @@
 
 class lv3 : public cScreen{
 private:
-
 public:
-	lv3(void);
-	virtual int Run(sf::RenderWindow &Tela);
+    lv3(void);
+    virtual int Run(sf::RenderWindow &Tela);
 };
 
 lv3::lv3(void){
@@ -69,7 +68,7 @@ int lv3::Run(sf::RenderWindow &Tela){
     sf::Sound sound;
     
 
-	sf::RectangleShape piano(sf::Vector2f(500, 200));
+    sf::RectangleShape piano(sf::Vector2f(500, 200));
     piano.setPosition(150, 200);
     sf::Texture tpiano;
     if (!tpiano.loadFromFile("../Images/teclado_real_oficial.bmp")){
@@ -305,6 +304,6 @@ int lv3::Run(sf::RenderWindow &Tela){
         Tela.display();
     }
 
-	//Never reaching this point normally, but just in case, exit the Telalication
-	return (-1);
+    //Never reaching this point normally, but just in case, exit the Telalication
+    return (-1);
 }

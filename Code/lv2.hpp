@@ -30,6 +30,7 @@ int lv2::Run(sf::RenderWindow &Tela){
     filam.Insere(8);filam.Insere(6);filam.Insere(6);
     filam.Insere(5);filam.Insere(5);filam.Insere(3);
     filam.Insere(3);   
+    tamTotal = filam.Contador();
 
 
     sf::SoundBuffer c;
@@ -163,33 +164,37 @@ int lv2::Run(sf::RenderWindow &Tela){
 
     // Loop para deixar a janela aberta
     while (Tela.isOpen()){
-    sf::Event event;
-    switch (turno){
-//turno pause
-    case 0:
-        Tela.clear(sf::Color::White);
-        while (Tela.pollEvent(event)){
+        sf::Event event;
+        switch (turno){
+    //turno pause
+        case 0:
+            cout << "Case 0"<<endl;
+            Tela.clear(sf::Color::White);
+            while (Tela.pollEvent(event)){
             if (event.type == sf::Event::KeyPressed){
                 if (event.key.code == sf::Keyboard::Space){
-                    if (filac.Contador() == 0){
+                    turno = 2;
+                    /*if (filac.Contador() == 0){
                         turno = 1;
                     }else{
                         turno = 2;
-                    }
+                    }*/
                 }
             }
             if (event.type == sf::Event::Closed){
                 Tela.close();
             }
-        }
-        piano.setTexture(&tpiano, true);
-        Tela.draw(piano);
-        Tela.display();
-    break;
-//turno da maquina
-    case 1:
-    if (!filam.Vazia()){
-        tamTotal = filam.Contador();
+            }
+            cout << "render"<<endl;
+            piano.setTexture(&tpiano, true);
+            Tela.draw(piano);
+            Tela.display();
+        break;
+    //turno da maquina
+    /*
+        case 1:
+        Tela.clear(sf::Color::White);
+        if (!filam.Vazia()){
         retira = filam.Retira();
         filac.Insere(retira);
         retira = filam.Retira();
@@ -334,20 +339,26 @@ int lv2::Run(sf::RenderWindow &Tela){
                     sound.play();
                     sf::sleep(sf::milliseconds(250));
                 break;
-            } 
-        }    
-    }else{
-        turno = 6;
-    }
+            }
+        }
+        sf::sleep(sf::milliseconds(250));
+        piano.setTexture(&tpiano, true);
+        Tela.draw(piano);
+        Tela.display();        
+        }else{
+            turno = 6;
+        }
     
-    
-    break;
-//turno do jogador
-    case 2:
-        tamPlayer = 0;
-        Tela.clear(sf::Color::White);
-        // Checa os eventos em loop
-        while (Tela.pollEvent(event)){
+        
+        break;
+    */
+        //turno do jogador
+        case 2:
+        cout << "case 2" <<endl;
+            tamPlayer = 0;
+            Tela.clear(sf::Color::White);
+            // Checa os eventos em loop
+            while (Tela.pollEvent(event)){
             switch (event.type){ 
                 case sf::Event::KeyPressed:
                     switch (event.key.code){
@@ -357,7 +368,6 @@ int lv2::Run(sf::RenderWindow &Tela){
                             Tela.display();
                             sound.setBuffer(c);
                             sound.play();
-
                             sf::sleep(sf::milliseconds(250));
                         break;
                         case sf::Keyboard::Num2:
@@ -500,25 +510,23 @@ int lv2::Run(sf::RenderWindow &Tela){
                     Tela.close();
                 break; 
             }
-        }
-        piano.setTexture(&tpiano, true);
-        Tela.draw(piano);
-        Tela.display();
-    }
-    break;
-//testando para ir para o prox level, ou fim de jogo (turno =5)
-/*    case 4:
+            }
+            piano.setTexture(&tpiano, true);
+            Tela.draw(piano);
+            Tela.display();
+        break;
+    //testando para ir para o prox level, ou fim de jogo (turno =5)
+        /*    case 4:
 
     break;
-//caso perca
+    //caso perca
     case 5:
 
     break;
-//caso ganhe
-    case 6:
-
-    break;
-    */}
-	//Never reaching this point normally, but just in case, exit the Telalication
-	return (-1);
+    //caso ganhe
+            case 6:
+    
+            break;
+*/      }
+    }
 }

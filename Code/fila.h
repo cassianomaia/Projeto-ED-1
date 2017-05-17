@@ -35,11 +35,6 @@ class Fila{
         bool Compara(Fila&, Fila&);
         
         int Contador();
-        
-        
-        
-
-
 };
 
 Fila::Fila(){
