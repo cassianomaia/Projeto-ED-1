@@ -1,8 +1,6 @@
 #include "cScreen.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-#include <iostream>
-using namespace std;
 #include "fila.h"
 
 class lv2 : public cScreen{
@@ -537,7 +535,6 @@ int lv2::Run(sf::RenderWindow &Tela){
                     sf::sleep(sf::milliseconds(500));
                     turno = 1;
                 }else{
-                    cout << "nao foi?" << endl;
                     for(i = filap.Contador(); i >0; i--){
                         retira = filap.Retira();
                     }
@@ -551,7 +548,6 @@ int lv2::Run(sf::RenderWindow &Tela){
         break;
     //caso perca
         case 4:
-            cout << "Perdeu" << endl;
             Tela.clear(sf::Color::White);
             while (Tela.pollEvent(event)){
                 if (event.type == sf::Event::KeyPressed){
@@ -569,7 +565,6 @@ int lv2::Run(sf::RenderWindow &Tela){
         break;
     //caso ganhe
         case 5:
-            cout << "Ganhou" << endl;
             Tela.clear(sf::Color::White);
             while (Tela.pollEvent(event)){
                 if (event.type == sf::Event::KeyPressed){

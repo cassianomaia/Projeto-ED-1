@@ -5,6 +5,11 @@
 
 class lv3 : public cScreen{
 private:
+    int turno;   // 0 = pausa | 1 = pc | 2 = jogador
+    int retira, i, z;
+    Fila filap; //fila do jogador
+    Fila filac; //fila do computador
+    Fila filam; //fila musica
 public:
     lv3(void);
     virtual int Run(sf::RenderWindow &Tela);
