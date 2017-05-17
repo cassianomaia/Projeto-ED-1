@@ -1,53 +1,69 @@
 #include "SFML/Graphics.hpp"
 
-#define MAX_NUMBER_OF_ITEMS 5
+#define MAX_NUMBER_OF_ITEMS 6
 
 class selectionmenu{
+private:
+	int selectedItemIndex;
+	sf::Font font1;
+	sf::Font font2;
+	sf::Text menu[MAX_NUMBER_OF_ITEMS];
 public:
-	selctionmenu(float width, float height);
+	selectionmenu(float width, float height);
 	~selectionmenu();
 
 	void draw(sf::RenderWindow &Tela);
 	void MoveUp();
 	void MoveDown();
 	int GetPressedItem() { return selectedItemIndex; }
-
-private:
-	int selectedItemIndex;
-	sf::Font font;
-	sf::Text menu[MAX_NUMBER_OF_ITEMS];
 };
 
 
 selectionmenu::selectionmenu(float width, float height){
-	if (!font.loadFromFile("arial.ttf")){
-		// handle error
+
+	if (!font1.loadFromFile("../Fonts/piano2.ttf")){
+		return (-1);
+	}
+	
+	if (!font2.loadFromFile("../Fonts/Roboto-Regular.ttf")){
+		return (-1);
 	}
 
-	menu[0].setFont(font);
-	menu[0].setColor(sf::Color::Blue);
-	menu[0].setString("1");
-	menu[0].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 1));
+	menu[0].setFont(font2);
+	menu[0].setFillColor(sf::Color::Black);
+	menu[0].setString("Levels:");
+	menu[0].setPosition(sf::Vector2f(width / 2, 275));
+	menu[0].setCharacterSize(50);
 
-	menu[1].setFont(font);
-	menu[1].setColor(sf::Color::White);
-	menu[1].setString("2");
-	menu[1].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 2));
+	menu[1].setFont(font1);
+	menu[1].setFillColor(sf::Color::Blue);
+	menu[1].setString("1");
+	menu[1].setPosition(sf::Vector2f(400, 250));
+	menu[1].setCharacterSize(70);
 
-	menu[2].setFont(font);
-	menu[2].setColor(sf::Color::White);
-	menu[2].setString("3");
-	menu[2].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 3));
+	menu[2].setFont(font1);
+	menu[2].setFillColor(sf::Color::Black);
+	menu[2].setString("2");
+	menu[2].setPosition(sf::Vector2f(488, 250));
+	menu[2].setCharacterSize(70);
 
-	menu[3].setFont(font);
-	menu[3].setColor(sf::Color::White);
-	menu[3].setString("How to Play");
-	menu[3].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 4));
+	menu[3].setFont(font1);
+	menu[3].setFillColor(sf::Color::Black);
+	menu[3].setString("3");
+	menu[3].setPosition(sf::Vector2f(576, 250));
+	menu[3].setCharacterSize(70);
 
-	menu[4].setFont(font);
-	menu[4].setColor(sf::Color::White);
+	menu[4].setFont(font2);
+	menu[4].setFillColor(sf::Color::Black);
 	menu[4].setString("About");
-	menu[4].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 5));
+	menu[4].setPosition(sf::Vector2f(200, 410));
+	menu[4].setCharacterSize(30);
+
+	menu[5].setFont(font2);
+	menu[5].setFillColor(sf::Color::Black);
+	menu[5].setString("How to Play");
+	menu[5].setPosition(sf::Vector2f(430, 410));
+	menu[5].setCharacterSize(30);
 
 	selectedItemIndex = 0;
 }
@@ -64,18 +80,18 @@ void selectionmenu::draw(sf::RenderWindow &Tela){
 }
 
 void selectionmenu::MoveUp(){
-	if (selectedItemIndex - 1 >= 0){
-		menu[selectedItemIndex].setColor(sf::Color::White);
+	if (selectedItemIndex - 1 > 0){
+		menu[selectedItemIndex].setFillColor(sf::Color::Black);
 		selectedItemIndex--;
-		menu[selectedItemIndex].setColor(sf::Color::Blue);
+		menu[selectedItemIndex].setFillColor(sf::Color::Blue);
 	}
 }
 
 void selectionmenu::MoveDown(){
 	if (selectedItemIndex + 1 < MAX_NUMBER_OF_ITEMS)
 	{
-		menu[selectedItemIndex].setColor(sf::Color::White);
+		menu[selectedItemIndex].setFillColor(sf::Color::Black);
 		selectedItemIndex++;
-		menu[selectedItemIndex].setColor(sf::Color::Blue);
+		menu[selectedItemIndex].setFillColor(sf::Color::Blue);
 	}
 }

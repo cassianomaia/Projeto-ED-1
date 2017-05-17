@@ -5,6 +5,8 @@
 
 class about : public cScreen{
 private:
+    sf::Font font;
+    sf::Text esc;
 public:
 	about(void);
 	virtual int Run(sf::RenderWindow &Tela);
@@ -14,10 +16,20 @@ about::about(void){
 }
 
 int about::Run(sf::RenderWindow &Tela){
+
+    if (!font.loadFromFile("../Fonts/Roboto-Regular.ttf")){
+        return (-1);
+    }
+    esc.setFont(font);
+    esc.setFillColor(sf::Color::Black);
+    esc.setString("Pressione ESC para sair.");
+    esc.setPosition(sf::Vector2f(25, 550));
+    esc.setCharacterSize(20);
+
     sf::RectangleShape about(sf::Vector2f(199,47));
     sf::Texture textAbout;
     if (!textAbout.loadFromFile("../Images/about.png")){
-        return EXIT_FAILURE;
+        rereturn (-1);
     }
     about.setTexture(&textAbout, true);
     about.setPosition(300, 100);
@@ -25,10 +37,10 @@ int about::Run(sf::RenderWindow &Tela){
     sf::RectangleShape abouttext(sf::Vector2f(621,255));
     sf::Texture aboutimg;
     if (!aboutimg.loadFromFile("../Images/abouttext.png")){
-        return EXIT_FAILURE;
+        rereturn (-1);
     }
     abouttext.setTexture(&aboutimg, true);
-    abouttext.setPosition(90, 150);
+    abouttext.setPosition(90, 200);
     
     // Loop para deixar a janela aberta
     while (Tela.isOpen()){
@@ -47,6 +59,7 @@ int about::Run(sf::RenderWindow &Tela){
         Tela.clear(sf::Color::White);
         Tela.draw(about);
         Tela.draw(abouttext);
+        Tela.draw(esc);
         Tela.display();
     }
 
