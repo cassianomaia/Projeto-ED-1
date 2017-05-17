@@ -26,7 +26,7 @@ int lv2::Run(sf::RenderWindow &Tela){
     filam.Insere(3);filam.Insere(3);filam.Insere(10);
     filam.Insere(10);filam.Insere(12);filam.Insere(12);
     filam.Insere(10);filam.Insere(10);filam.Insere(8);
-    filam.Insere(8);filam.Insere(6);filam.Insere(6);
+    filam.Insere(8);filam.Insere(7);filam.Insere(7);
     filam.Insere(5);filam.Insere(5);filam.Insere(3);
     filam.Insere(3);   
     turno = 0;
@@ -189,8 +189,6 @@ int lv2::Run(sf::RenderWindow &Tela){
     //turno da maquina
     
         case 1: 
-        z = filam.Contador();
-        cout << z << endl;
         if (!filam.Vazia()){
                 retira = filam.Retira();
                 filac.Insere(retira);
@@ -349,7 +347,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                 Tela.display();
                 turno = 2;        
             }else{
-                turno = 4;
+                turno = 5;
             }
         break;
 
@@ -529,9 +527,20 @@ int lv2::Run(sf::RenderWindow &Tela){
             }
             if (filap.Contador() == filac.Contador()){
                 if (filap.Compara(filac, filap)){
+                    for(i = filap.Contador(); i >0; i--){
+                        retira = filap.Retira();
+                    }
+                    Tela.clear(sf::Color::White);
+                    piano.setTexture(&tpiano, true);
+                    Tela.draw(piano);
+                    Tela.display();
+                    sf::sleep(sf::milliseconds(500));
                     turno = 1;
                 }else{
                     cout << "nao foi?" << endl;
+                    for(i = filap.Contador(); i >0; i--){
+                        retira = filap.Retira();
+                    }
                     turno = 4;
                 }
             }else{
@@ -542,6 +551,7 @@ int lv2::Run(sf::RenderWindow &Tela){
         break;
     //caso perca
         case 4:
+            cout << "Perdeu" << endl;
             Tela.clear(sf::Color::White);
             while (Tela.pollEvent(event)){
                 if (event.type == sf::Event::KeyPressed){
@@ -559,6 +569,7 @@ int lv2::Run(sf::RenderWindow &Tela){
         break;
     //caso ganhe
         case 5:
+            cout << "Ganhou" << endl;
             Tela.clear(sf::Color::White);
             while (Tela.pollEvent(event)){
                 if (event.type == sf::Event::KeyPressed){

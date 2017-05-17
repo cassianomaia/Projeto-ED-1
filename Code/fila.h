@@ -52,56 +52,48 @@ bool Fila::Vazia(){
 }
 
 void Fila::Insere(int nota){
-
-    node *temp = new node;
+	node *temp = new node;
     
     if (Fila::Vazia() == 1){
     	temp->info = nota;
+    	temp->next = temp;	
     	frente = temp;
-    	tras = temp;
-    	
-    	
-	} 
-    
-    if (Fila::Vazia() != 1){
-	
+    	tras = temp;	
+	} else {
     	temp->info = nota;
     	temp->next = frente;
     	tras->next = temp;
     	tras = temp;
 	} 
-
 }
 
 int Fila::Retira(){
 
     node *temp = new node;
     int x;
-    
+    deuCerto = true;
     if (Fila::Vazia() != 1){
     	if (tras == frente){
     		x = tras->info;
+    		delete frente;
     		frente = NULL;
     		tras = NULL;
     		
     		return x;
     		
-		} else if (frente->next = tras){
+		} else if (frente->next == tras){
 			x = frente->info;
-			temp = frente;
+			delete frente;
 			frente = tras;
-			delete temp;
 			
 			return x;
 		} else {
-			temp = tras;
-    	x = tras->info;
-    	tras->next = frente->next;
-    	frente->next = frente;
-    	
-    	return x;
-    	
-    	delete temp;
+	    	x = frente->info;
+	    	tras->next = frente->next;
+	    	delete frente;
+	    	frente = tras->next;
+	    	
+	    	return x;
 		}
 	} else
 		deuCerto = false;
@@ -161,8 +153,7 @@ bool Fila::Compara(Fila &f1, Fila &f2){
 	if (igual == false)
 		return false;
 	else
-		return true;
-		
+		return true;		
 }
 
 
