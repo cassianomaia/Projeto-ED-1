@@ -28,7 +28,7 @@ int howto::Run(sf::RenderWindow &Tela){
     sf::RectangleShape howto(sf::Vector2f(400,47));
     sf::Texture texthowto;
     if (!texthowto.loadFromFile("../Images/howto.png")){
-        rereturn (-1);
+        return (-1);
     }
     howto.setTexture(&texthowto, true);
     howto.setPosition(200, 30);
@@ -36,7 +36,7 @@ int howto::Run(sf::RenderWindow &Tela){
     sf::RectangleShape howtotext(sf::Vector2f(518,480));
     sf::Texture howtoimg;
     if (!howtoimg.loadFromFile("../Images/howtotext.png")){
-        rereturn (-1);
+        return (-1);
     }
     howtotext.setTexture(&howtoimg, true);
     howtotext.setPosition(141, 90);
