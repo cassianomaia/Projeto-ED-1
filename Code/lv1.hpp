@@ -70,13 +70,27 @@ int lv1::Run(sf::RenderWindow &Tela){
     espaco.setString("Pressione espaco para continuar.");
     espaco.setPosition(sf::Vector2f(100, 100));
     espaco.setCharacterSize(40);
-/*
+
     filam.Insere(3);filam.Insere(3);filam.Insere(10);
     filam.Insere(10);filam.Insere(12);filam.Insere(12);
     filam.Insere(10);filam.Insere(10);filam.Insere(8);
     filam.Insere(8);filam.Insere(7);filam.Insere(7);
-    filam.Insere(5);filam.Insere(5);*/filam.Insere(3);
-    filam.Insere(3);   
+    filam.Insere(5);filam.Insere(5);filam.Insere(3);
+    filam.Insere(3);
+
+    filam.Insere(10);filam.Insere(10);filam.Insere(8);
+    filam.Insere(8);filam.Insere(7);filam.Insere(7);
+    filam.Insere(5);filam.Insere(5);filam.Insere(10);
+    filam.Insere(10);filam.Insere(8);filam.Insere(8);
+    filam.Insere(7);filam.Insere(7);filam.Insere(5);
+    filam.Insere(5);
+
+    filam.Insere(3);filam.Insere(3);filam.Insere(10);
+    filam.Insere(10);filam.Insere(12);filam.Insere(12);
+    filam.Insere(10);filam.Insere(10);filam.Insere(8);
+    filam.Insere(8);filam.Insere(7);filam.Insere(7);
+    filam.Insere(5);filam.Insere(5);filam.Insere(3);
+    filam.Insere(3);  
     turno = 0;
 
 

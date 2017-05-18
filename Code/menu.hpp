@@ -59,7 +59,5 @@ int menu::Run(sf::RenderWindow &Tela){
         menu1.draw(Tela);
         Tela.display();
     }
-
-	//Never reaching this point normally, but just in case, exit the Telalication
 	return (-1);
 }
