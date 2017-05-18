@@ -6,16 +6,15 @@
 
 class lv2 : public cScreen{
 private:
-    int turno;   // 0 = pausa | 1 = pc | 2 = jogador
+    int turno;   // 0 = pausa | 1 = pc | 2 = jogando
     int retira, i, z;
-    Fila filap; //fila do jogador
+    Fila filap; //fila do jogando
     Fila filac; //fila do computador
     Fila filam; //fila musica
     sf::Font font;
     sf::Text ganhou;
     sf::Text perdeu;
-    sf::Text maquina;
-    sf::Text jogador;
+    sf::Text jogando;
     sf::Text esc;
     sf::Text espaco;
 public:
@@ -47,17 +46,11 @@ int lv2::Run(sf::RenderWindow &Tela){
     perdeu.setPosition(sf::Vector2f(100, 100));
     perdeu.setCharacterSize(40);
 
-    maquina.setFont(font);
-    maquina.setFillColor(sf::Color::Black);
-    maquina.setString("Preste atencao!");
-    maquina.setPosition(sf::Vector2f(100, 100));
-    maquina.setCharacterSize(40);
-
-    jogador.setFont(font);
-    jogador.setFillColor(sf::Color::Black);
-    jogador.setString("Agora repita :D");
-    jogador.setPosition(sf::Vector2f(100, 100));
-    jogador.setCharacterSize(40);
+    jogando.setFont(font);
+    jogando.setFillColor(sf::Color::Black);
+    jogando.setString("Preste atencao e repita!");
+    jogando.setPosition(sf::Vector2f(100, 100));
+    jogando.setCharacterSize(40);
 
     esc.setFont(font);
     esc.setFillColor(sf::Color::Black);
@@ -257,7 +250,7 @@ int lv2::Run(sf::RenderWindow &Tela){
             Tela.draw(esc);
             Tela.display();
         break;
-    //turno da maquina
+    //turno da jogando
     
         case 1: 
         Tela.clear(sf::Color::White);
@@ -265,7 +258,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                 Tela.clear(sf::Color::White);
                 piano.setTexture(&tpiano, true);
                 Tela.draw(piano);
-                Tela.draw(maquina);
+                Tela.draw(jogando);
                 Tela.draw(esc);
                 Tela.display();
                 retira = filam.Retira();
@@ -415,7 +408,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                     filac.Insere(retira);
                     piano.setTexture(&tpiano, true);
                     Tela.draw(piano);
-                    Tela.draw(maquina);
+                    Tela.draw(jogando);
                     Tela.draw(esc);
                     Tela.display();
                     sf::sleep(sf::milliseconds(250));
@@ -423,7 +416,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                 Tela.clear(sf::Color::White);
                 piano.setTexture(&tpiano, true);
                 Tela.draw(piano);
-                Tela.draw(maquina);
+                Tela.draw(jogando);
                 Tela.draw(esc);
                 Tela.display();
                 turno = 2;        
@@ -432,12 +425,12 @@ int lv2::Run(sf::RenderWindow &Tela){
             }
         break;
 
-        //turno do jogador
+        //turno do jogando
         case 2:
             Tela.clear(sf::Color::White);
             piano.setTexture(&tpiano, true);
             Tela.draw(piano);
-            Tela.draw(jogador);
+            Tela.draw(jogando);
             Tela.draw(esc);
             Tela.display();
             // Checa os eventos em loop
@@ -448,7 +441,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                             case sf::Keyboard::Q:
                                 piano.setTexture(&tpianoc, true);
                                 Tela.draw(piano);
-                                Tela.draw(jogador);
+                                Tela.draw(jogando);
                                 Tela.draw(esc);
                                 Tela.display();
                                 sound.setBuffer(c);
@@ -459,7 +452,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                             case sf::Keyboard::Num2:
                                 piano.setTexture(&tpianocsharp, true);
                                 Tela.draw(piano);
-                                Tela.draw(jogador);
+                                Tela.draw(jogando);
                                 Tela.draw(esc);
                                 Tela.display();
                                 sound.setBuffer(csharp);
@@ -470,7 +463,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                             case sf::Keyboard::W:
                                 piano.setTexture(&tpianod, true);
                                 Tela.draw(piano);
-                                Tela.draw(jogador);
+                                Tela.draw(jogando);
                                 Tela.draw(esc);
                                 Tela.display();
                                 sound.setBuffer(d);
@@ -481,7 +474,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                             case sf::Keyboard::Num3:
                                 piano.setTexture(&tpianodsharp, true);
                                 Tela.draw(piano);
-                                Tela.draw(jogador);
+                                Tela.draw(jogando);
                                 Tela.draw(esc);
                                 Tela.display();
                                 sound.setBuffer(dsharp);
@@ -492,7 +485,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                             case sf::Keyboard::E:
                                 piano.setTexture(&tpianoe, true);
                                 Tela.draw(piano);
-                                Tela.draw(jogador);
+                                Tela.draw(jogando);
                                 Tela.draw(esc);
                                 Tela.display();
                                 sound.setBuffer(e);
@@ -503,7 +496,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                             case sf::Keyboard::R:
                                 piano.setTexture(&tpianof, true);
                                 Tela.draw(piano);
-                                Tela.draw(jogador);
+                                Tela.draw(jogando);
                                 Tela.draw(esc);
                                 Tela.display();
                                 sound.setBuffer(f);
@@ -514,7 +507,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                             case sf::Keyboard::Num5:
                                 piano.setTexture(&tpianofsharp, true);
                                 Tela.draw(piano);
-                                Tela.draw(jogador);
+                                Tela.draw(jogando);
                                 Tela.draw(esc);
                                 Tela.display();
                                 sound.setBuffer(fsharp);
@@ -525,7 +518,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                             case sf::Keyboard::T:
                                 piano.setTexture(&tpianog, true);
                                 Tela.draw(piano);
-                                Tela.draw(jogador);
+                                Tela.draw(jogando);
                                 Tela.draw(esc);
                                 Tela.display();
                                 sound.setBuffer(g);
@@ -536,7 +529,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                             case sf::Keyboard::Num6:
                                 piano.setTexture(&tpianogsharp, true);
                                 Tela.draw(piano);
-                                Tela.draw(jogador);
+                                Tela.draw(jogando);
                                 Tela.draw(esc);
                                 Tela.display();
                                 sound.setBuffer(gsharp);
@@ -547,7 +540,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                             case sf::Keyboard::Y:
                                 piano.setTexture(&tpianoa, true);
                                 Tela.draw(piano);
-                                Tela.draw(jogador);
+                                Tela.draw(jogando);
                                 Tela.draw(esc);
                                 Tela.display();
                                 sound.setBuffer(a);
@@ -558,7 +551,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                             case sf::Keyboard::Num7:
                                 piano.setTexture(&tpianoasharp, true);
                                 Tela.draw(piano);
-                                Tela.draw(jogador);
+                                Tela.draw(jogando);
                                 Tela.draw(esc);
                                 Tela.display();
                                 sound.setBuffer(asharp);
@@ -569,7 +562,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                             case sf::Keyboard::U:
                                 piano.setTexture(&tpianob, true);
                                 Tela.draw(piano);
-                                Tela.draw(jogador);
+                                Tela.draw(jogando);
                                 Tela.draw(esc);
                                 Tela.display();
                                 sound.setBuffer(b);
@@ -580,7 +573,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                             case sf::Keyboard::I:
                                 piano.setTexture(&tpianoC, true);
                                 Tela.draw(piano);
-                                Tela.draw(jogador);
+                                Tela.draw(jogando);
                                 Tela.draw(esc);
                                 Tela.display();
                                 sound.setBuffer(C);
@@ -591,7 +584,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                             case sf::Keyboard::Num9:
                                 piano.setTexture(&tpianoCsharp, true);
                                 Tela.draw(piano);
-                                Tela.draw(jogador);
+                                Tela.draw(jogando);
                                 Tela.draw(esc);
                                 Tela.display();
                                 sound.setBuffer(Csharp);
@@ -602,7 +595,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                             case sf::Keyboard::O:
                                 piano.setTexture(&tpianoD, true);
                                 Tela.draw(piano);
-                                Tela.draw(jogador);
+                                Tela.draw(jogando);
                                 Tela.draw(esc);
                                 Tela.display();
                                 sound.setBuffer(D);
@@ -613,7 +606,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                             case sf::Keyboard::Num0:
                                 piano.setTexture(&tpianoDsharp, true);
                                 Tela.draw(piano);
-                                Tela.draw(jogador);
+                                Tela.draw(jogando);
                                 Tela.draw(esc);
                                 Tela.display();
                                 sound.setBuffer(Dsharp);
@@ -624,7 +617,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                             case sf::Keyboard::P:
                                 piano.setTexture(&tpianoE, true);
                                 Tela.draw(piano);
-                                Tela.draw(jogador);
+                                Tela.draw(jogando);
                                 Tela.draw(esc);
                                 Tela.display();
                                 sound.setBuffer(E);
@@ -653,7 +646,7 @@ int lv2::Run(sf::RenderWindow &Tela){
                     Tela.clear(sf::Color::White);
                     piano.setTexture(&tpiano, true);
                     Tela.draw(piano);
-                    Tela.draw(jogador);
+                    Tela.draw(jogando);
                     Tela.draw(esc);
                     Tela.display();
                     sf::sleep(sf::milliseconds(500));
@@ -667,7 +660,7 @@ int lv2::Run(sf::RenderWindow &Tela){
             }else{
                 piano.setTexture(&tpiano, true);
                 Tela.draw(piano);
-                Tela.draw(jogador);
+                Tela.draw(jogando);
                 Tela.draw(esc);
                 Tela.display();
             }
