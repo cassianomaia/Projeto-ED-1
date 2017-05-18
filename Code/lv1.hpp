@@ -2,12 +2,13 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include "fila.hpp"
-
+#include <iostream>
+using namespace std;
 
 class lv1 : public cScreen{
 private:
     int turno;   // 0 = pausa | 1 = pc | 2 = jogador
-    int retira, i, z;
+    int retira, i;
     Fila filap; //fila do jogador
     Fila filac; //fila do computador
     Fila filam; //fila musica
@@ -28,7 +29,6 @@ lv1::lv1(void){
 }
 
 int lv1::Run(sf::RenderWindow &Tela){
-
     Tela.setVerticalSyncEnabled(true);
 
     if (!font.loadFromFile("../Fonts/Roboto-Regular.ttf")){
@@ -36,13 +36,13 @@ int lv1::Run(sf::RenderWindow &Tela){
     }
 
     ganhou.setFont(font);
-    ganhou.setFillColor(sf::Color::Blue);
+    ganhou.setFillColor(sf::Color::Black);
     ganhou.setString("Voce ganhou!");
     ganhou.setPosition(sf::Vector2f(100, 100));
     ganhou.setCharacterSize(40);
 
     perdeu.setFont(font);
-    perdeu.setFillColor(sf::Color::Red);
+    perdeu.setFillColor(sf::Color::Black);
     perdeu.setString("Perdeu :/");
     perdeu.setPosition(sf::Vector2f(100, 100));
     perdeu.setCharacterSize(40);
@@ -73,7 +73,7 @@ int lv1::Run(sf::RenderWindow &Tela){
 
     filam.Insere(3);filam.Insere(3);filam.Insere(10);
     filam.Insere(10);filam.Insere(12);filam.Insere(12);
-    filam.Insere(10);filam.Insere(10);filam.Insere(8);
+    filam.Insere(10);filam.Insere(10);/*filam.Insere(8);
     filam.Insere(8);filam.Insere(7);filam.Insere(7);
     filam.Insere(5);filam.Insere(5);filam.Insere(3);
     filam.Insere(3);
@@ -90,7 +90,8 @@ int lv1::Run(sf::RenderWindow &Tela){
     filam.Insere(10);filam.Insere(10);filam.Insere(8);
     filam.Insere(8);filam.Insere(7);filam.Insere(7);
     filam.Insere(5);filam.Insere(5);filam.Insere(3);
-    filam.Insere(3);  
+    filam.Insere(3);*/
+
     turno = 0;
 
 
@@ -152,75 +153,75 @@ int lv1::Run(sf::RenderWindow &Tela){
     piano.setPosition(149, 200);
     sf::Texture tpiano;
     if (!tpiano.loadFromFile("../Images/Piano/teclado_real_oficial.bmp")){
-        rereturn (-1);
+        return (-1);
     }
     sf::Texture tpianoc;
     if (!tpianoc.loadFromFile("../Images/Piano/Q.bmp")){
-        rereturn (-1);
+        return (-1);
     }
     sf::Texture tpianocsharp;
     if (!tpianocsharp.loadFromFile("../Images/Piano/2.bmp")){
-        rereturn (-1);
+        return (-1);
     }
     sf::Texture tpianod;
     if (!tpianod.loadFromFile("../Images/Piano/W.bmp")){
-        rereturn (-1);
+        return (-1);
     }
     sf::Texture tpianodsharp;
     if (!tpianodsharp.loadFromFile("../Images/Piano/3.bmp")){
-        rereturn (-1);
+        return (-1);
     }
     sf::Texture tpianoe;
     if (!tpianoe.loadFromFile("../Images/Piano/E.bmp")){
-        rereturn (-1);
+        return (-1);
     }
     sf::Texture tpianof;
     if (!tpianof.loadFromFile("../Images/Piano/R.bmp")){
-        rereturn (-1);
+        return (-1);
     }
     sf::Texture tpianofsharp;
     if (!tpianofsharp.loadFromFile("../Images/Piano/5.bmp")){
-        rereturn (-1);
+        return (-1);
     }
     sf::Texture tpianog;
     if (!tpianog.loadFromFile("../Images/Piano/T.bmp")){
-        rereturn (-1);
+        return (-1);
     }
     sf::Texture tpianogsharp;
     if (!tpianogsharp.loadFromFile("../Images/Piano/6.bmp")){
-        rereturn (-1);
+        return (-1);
     }
     sf::Texture tpianoa;
     if (!tpianoa.loadFromFile("../Images/Piano/Y.bmp")){
-        rereturn (-1);
+        return (-1);
     }
     sf::Texture tpianoasharp;
     if (!tpianoasharp.loadFromFile("../Images/Piano/7.bmp")){
-        rereturn (-1);
+        return (-1);
     }
     sf::Texture tpianob;
     if (!tpianob.loadFromFile("../Images/Piano/U.bmp")){
-        rereturn (-1);
+        return (-1);
     }
     sf::Texture tpianoC;
     if (!tpianoC.loadFromFile("../Images/Piano/I.bmp")){
-        rereturn (-1);
+        return (-1);
     }
     sf::Texture tpianoCsharp;
     if (!tpianoCsharp.loadFromFile("../Images/Piano/9.bmp")){
-        rereturn (-1);
+        return (-1);
     }
     sf::Texture tpianoD;
     if (!tpianoD.loadFromFile("../Images/Piano/O.bmp")){
-        rereturn (-1);
+        return (-1);
     }
     sf::Texture tpianoDsharp;
     if (!tpianoDsharp.loadFromFile("../Images/Piano/0.bmp")){
-        rereturn (-1);
+        return (-1);
     }
     sf::Texture tpianoE;
     if (!tpianoE.loadFromFile("../Images/Piano/P.bmp")){
-        rereturn (-1);
+        return (-1);
     }
 
     // Loop para deixar a janela aberta

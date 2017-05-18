@@ -29,7 +29,7 @@ int about::Run(sf::RenderWindow &Tela){
     sf::RectangleShape about(sf::Vector2f(199,47));
     sf::Texture textAbout;
     if (!textAbout.loadFromFile("../Images/about.png")){
-        rereturn (-1);
+        return (-1);
     }
     about.setTexture(&textAbout, true);
     about.setPosition(300, 100);
@@ -37,7 +37,7 @@ int about::Run(sf::RenderWindow &Tela){
     sf::RectangleShape abouttext(sf::Vector2f(621,255));
     sf::Texture aboutimg;
     if (!aboutimg.loadFromFile("../Images/abouttext.png")){
-        rereturn (-1);
+        return (-1);
     }
     abouttext.setTexture(&aboutimg, true);
     abouttext.setPosition(90, 200);

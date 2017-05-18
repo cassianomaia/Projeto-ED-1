@@ -22,11 +22,11 @@ public:
 selectionmenu::selectionmenu(float width, float height){
 
 	if (!font1.loadFromFile("../Fonts/piano2.ttf")){
-		return (-1);
+		//erro
 	}
 	
 	if (!font2.loadFromFile("../Fonts/Roboto-Regular.ttf")){
-		return (-1);
+		//erro
 	}
 
 	menu[0].setFont(font2);
