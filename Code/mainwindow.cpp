@@ -24,9 +24,18 @@ int main(){
     Screens.push_back(&s5);
 
     //Main loop
-    while (screen >= 0)
-    {
-        screen = Screens[screen]->Run(Tela);
+    while (screen >= 0){
+        switch (screen = Screens[screen]->Run(Tela)){
+            case 1:
+                Screens[1] = new lv1();
+            break;
+            case 2:
+                Screens[2] = new lv2();
+            break;
+            case 3:
+                Screens[3] = new lv3();
+            break;
+        }
     }
     return 0;
 }

@@ -15,7 +15,6 @@ private:
     sf::Font font;
     sf::Text ganhou;
     sf::Text perdeu;
-    sf::Text jogando;
     sf::Text esc;
     sf::Text espaco;
 public:
@@ -24,6 +23,33 @@ public:
 };
 
 lv1::lv1(void){
+    turno = 0;
+    for(i = filap.Contador(); i >0; i--){
+        retira = filap.Retira();
+    }
+    for(i = filac.Contador(); i >0; i--){
+        retira = filac.Retira();
+    }
+    filam.Insere(3);filam.Insere(3);filam.Insere(10);
+    filam.Insere(10);filam.Insere(12);filam.Insere(12);
+    filam.Insere(10);filam.Insere(10);filam.Insere(8);
+    filam.Insere(8);filam.Insere(7);filam.Insere(7);
+    filam.Insere(5);filam.Insere(5);filam.Insere(3);
+    filam.Insere(3);
+
+    filam.Insere(10);filam.Insere(10);filam.Insere(8);
+    filam.Insere(8);filam.Insere(7);filam.Insere(7);
+    filam.Insere(5);filam.Insere(5);filam.Insere(10);
+    filam.Insere(10);filam.Insere(8);filam.Insere(8);
+    filam.Insere(7);filam.Insere(7);filam.Insere(5);
+    filam.Insere(5);
+
+    filam.Insere(3);filam.Insere(3);filam.Insere(10);
+    filam.Insere(10);filam.Insere(12);filam.Insere(12);
+    filam.Insere(10);filam.Insere(10);filam.Insere(8);
+    filam.Insere(8);filam.Insere(7);filam.Insere(7);
+    filam.Insere(5);filam.Insere(5);filam.Insere(3);
+    filam.Insere(3);
 
 }
 
@@ -45,12 +71,6 @@ int lv1::Run(sf::RenderWindow &Tela){
     perdeu.setString("Perdeu :/");
     perdeu.setPosition(sf::Vector2f(100, 100));
     perdeu.setCharacterSize(40);
-
-    jogando.setFont(font);
-    jogando.setFillColor(sf::Color::Black);
-    jogando.setString("Preste atencao e repita!");
-    jogando.setPosition(sf::Vector2f(100, 100));
-    jogando.setCharacterSize(40);
     
     esc.setFont(font);
     esc.setFillColor(sf::Color::Black);
@@ -63,27 +83,6 @@ int lv1::Run(sf::RenderWindow &Tela){
     espaco.setString("Pressione espaco para continuar.");
     espaco.setPosition(sf::Vector2f(100, 100));
     espaco.setCharacterSize(40);
-
-    filam.Insere(3);filam.Insere(3);/*filam.Insere(10);
-    filam.Insere(10);filam.Insere(12);filam.Insere(12);
-    filam.Insere(10);filam.Insere(10);filam.Insere(8);
-    filam.Insere(8);filam.Insere(7);filam.Insere(7);
-    filam.Insere(5);filam.Insere(5);filam.Insere(3);
-    filam.Insere(3);
-
-    filam.Insere(10);filam.Insere(10);filam.Insere(8);
-    filam.Insere(8);filam.Insere(7);filam.Insere(7);
-    filam.Insere(5);filam.Insere(5);filam.Insere(10);
-    filam.Insere(10);filam.Insere(8);filam.Insere(8);
-    filam.Insere(7);filam.Insere(7);filam.Insere(5);
-    filam.Insere(5);
-
-    filam.Insere(3);filam.Insere(3);filam.Insere(10);
-    filam.Insere(10);filam.Insere(12);filam.Insere(12);
-    filam.Insere(10);filam.Insere(10);filam.Insere(8);
-    filam.Insere(8);filam.Insere(7);filam.Insere(7);
-    filam.Insere(5);filam.Insere(5);filam.Insere(3);
-    filam.Insere(3);*/
 
     for(i = filac.Contador(); i >0; i--){
         retira = filap.Retira();
@@ -452,7 +451,7 @@ int lv1::Run(sf::RenderWindow &Tela){
                 Tela.display();
                 turno = 2;        
             }else{
-                turno = 5;
+                turno = 4;
             }
         break;
 
@@ -686,7 +685,7 @@ int lv1::Run(sf::RenderWindow &Tela){
                     for(i = filap.Contador(); i >0; i--){
                         retira = filap.Retira();
                     }
-                    turno = 4;
+                    turno = 3;
                 }
             }else{
                 piano.setTexture(&tpiano, true);
@@ -697,7 +696,7 @@ int lv1::Run(sf::RenderWindow &Tela){
             }
         break;
     //caso perca
-        case 4:
+        case 3:
             Tela.clear(sf::Color::White);
             while (Tela.pollEvent(event)){
                 if (event.type == sf::Event::KeyPressed){
@@ -716,7 +715,7 @@ int lv1::Run(sf::RenderWindow &Tela){
             Tela.display();
         break;
     //caso ganhe
-        case 5:
+        case 4:
             Tela.clear(sf::Color::White);
             while (Tela.pollEvent(event)){
                 if (event.type == sf::Event::KeyPressed){
