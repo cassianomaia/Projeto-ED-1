@@ -252,7 +252,6 @@ int lv1::Run(sf::RenderWindow &Tela){
             Tela.display();
         break;
     //turno da maquina
-    
         case 1: 
         Tela.clear(sf::Color::White);
         if (!filam.Vazia()){
