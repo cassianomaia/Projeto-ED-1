@@ -4,9 +4,11 @@ Primeiro jogo da disciplina Estrutura de Dados. Consiste em uma aplicação de f
 Aplicação desenvolvida em C++ com auxilio da biblioteca SFML.
 
 Para compilar em linux:
-1.Instale a biblioteca sfml.
-2.Compile o arquivo mainwindow.cpp utilizando os seguintes comandos:
-g++ -c mainwindow.cpp
-g++ mainwindow.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+1. Instale a biblioteca sfml.
+2. Entre na pasta .../Projeto-ED1/code/
+3. Abra o terminal nessa pasta e digite os comandos:
+4. g++ -c mainwindow.cpp
+5. g++ mainwindow.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+6. Digite ./sfml-app no terminal.
 
 Desenvolvido por: Cassiano M, Jessica A, Julia M, Mariana C.
