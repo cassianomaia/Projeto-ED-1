@@ -1,4 +1,6 @@
 # Projeto-ED-1
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/832bd554fa434238ab99c31bb494af7c)](https://www.codacy.com/app/cassianomaia/Projeto-ED-3?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=marianacavichioli/Projeto-ED-3&amp;utm_campaign=Badge_Grade)
+
 Primeiro jogo da disciplina Estrutura de Dados. Consiste em uma aplicação de fila, onde utilizamos a idéia do jogo genius expandida em um teclado completo.
 
 Aplicação desenvolvida em C++ com auxilio da biblioteca SFML.
